@@ -1,0 +1,60 @@
+site_name: JR
+site_url:
+site_author: Ryou Ohsawa
+site_description:
+  JASMINE-Roman astrometry team website
+
+copyright: Ryou Ohsawa 2025
+
+theme:
+  name: 'material'
+    # logo: 'assets/logo.svg'
+    # favicon: 'assets/favicon.svg'
+  language: 'en'
+  font:
+    text: 'Sawarabi Gothic'
+  palette:
+    scheme: default
+    primary: indigo
+    accent: pink
+  features:
+    - navigation.sections
+    - header.autohide
+    - content.code.copy
+
+extra_css:
+  - css/config_local.css
+extra_javascript:
+  - js/config_mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - toc:
+      toc_depth: 2
+  - extra
+  - admonition
+  - smarty
+  - sane_lists
+  - meta
+  - attr_list
+  - markdown_captions
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.snippets:
+      check_paths: True
+  - pymdownx.arithmatex:
+      generic: true
+
+plugins:
+  - search:
+      lang: 'ja'
+  - git-revision-date-localized:
+      type: date
+
+nav:
+  - index.md
