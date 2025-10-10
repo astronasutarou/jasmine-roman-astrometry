@@ -1,5 +1,5 @@
-site_name: JR
-site_url:
+site_name: JASMINE-Roman Astrometry
+site_url: https://astronasutarou.github.io/jasmine-roman-astrometry/
 site_author: Ryou Ohsawa
 site_description:
   JASMINE-Roman astrometry team website
@@ -8,8 +8,8 @@ copyright: Ryou Ohsawa 2025
 
 theme:
   name: 'material'
-    # logo: 'assets/logo.svg'
-    # favicon: 'assets/favicon.svg'
+  logo: 'assets/logo-dark.svg'
+  favicon: 'assets/favicon.svg'
   language: 'en'
   font:
     text: 'Sawarabi Gothic'
