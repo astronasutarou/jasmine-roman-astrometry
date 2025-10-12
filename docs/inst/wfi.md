@@ -2,7 +2,6 @@
 title: Wide Field Instrument (WFI)
 description: Wide Field Instrument for the Nancy Grace Roman Space Telescope - Imaging Mode
 tags: [WFI, Wide Field Instrument, Roman, imaging, detectors, filters]
-icon: material/camera-outline
 ---
 
 # Wide Field Instrument (WFI)
