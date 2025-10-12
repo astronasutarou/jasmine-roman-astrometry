@@ -6,6 +6,16 @@ tags: [simulation, data challenge, Roman]
 
 # Roman DC2 Simulated Image
 
+|Item|Description|
+|---|---|
+|論文|[Troxel et al., 2023, MNRAS 522, 2801][Troxel]|
+|データ概要|[Roman DC2 Simulated Image (Troxel 2023) Overview][IPAC]|
+|データアクセス|[Roman DC2 Simulated Image (Troxel 2023) Data Access][access]|
+
+[Troxel]: https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.2801T/abstract
+[IPAC]: https://irsa.ipac.caltech.edu/data/theory/Roman/Troxel2023/overview.html
+[access]: https://irsa.ipac.caltech.edu/data/theory/Roman/Troxel2023/index.html
+
 ## 概要 (Overview)
 
 本研究では Nancy Grace Roman 宇宙望遠鏡の高緯度撮像サーベイ (HLIS) の全深度と Vera C. Rubin 天文台の Legacy Survey of Space and Time (LSST) の5年間の観測を代表する20平方度の重複する合成撮像サーベイを提示し、検証した。
