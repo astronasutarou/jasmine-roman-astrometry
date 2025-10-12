@@ -1,5 +1,5 @@
 ---
-title: An overview ofSTIPS for Roman
+title: An overview of STIPS for Roman
 description: Space Telescope Imaging Product Simulator for the Nancy Grace Roman Space Telescope
 tags: [simulation, imaging, Roman, WFI, STIPS]
 ---

@@ -2,7 +2,6 @@
 title: Roman Simulation Tools
 description: Overview of simulation tools for the Nancy Grace Roman Space Telescope
 tags: [simulation, tools, Roman, STPSF, STIPS, Pandeia, Roman I-Sim]
-icon: material/toolbox
 ---
 
 # Roman Simulation Tools
