@@ -57,4 +57,12 @@ plugins:
       type: date
 
 nav:
-  - index.md
+  - 'Top Page': index.md
+  - 'DC2 simulation':
+    - 'Troxel+ (2023) overview': dc2/index.md
+  - 'Simulation Tools':
+    - 'Overview': tools/index.md
+    - 'STPSF': tools/stpsf.md
+    - 'STIPS': tools/stips.md
+  - 'Instruments':
+    - 'Wide Field Instrument (WFI)': inst/wfi.md
