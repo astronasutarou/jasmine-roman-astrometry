@@ -1,22 +1,22 @@
 ---
-title: Home
-description: Welcome to the JASMINE-Roman astrometry project documentation
+title: ホーム
+description: JASMINE-Roman 位置天文プロジェクトドキュメントへようこそ
 tags: [astrometry, JASMINE, Roman, top page]
 icon: material/flare
 ---
 
 # JASMINE-Roman Astrometry
 
-Welcome to the JASMINE-Roman astrometry project website.
+JASMINE-Roman 位置天文プロジェクトのウェブサイトへようこそ。
 
-## Overview
+## 概要
 
-This is the documentation site for the JASMINE-Roman astrometry team. Here you'll find information about our research, tools, and collaboration between the JASMINE and Roman space telescope missions.
+これは JASMINE-Roman 位置天文チームのドキュメントサイトです。ここでは、私たちの研究、ツール、および JASMINE と Roman 宇宙望遠鏡ミッション間の協力に関する情報を見つけることができます。
 
-## About
+## について
 
-The JASMINE (Japan Astrometry Satellite Mission for INfrared Exploration) and Roman Space Telescope missions are working together to advance our understanding of the Milky Way galaxy through high-precision astrometric measurements.
+JASMINE（Japan Astrometry Satellite Mission for INfrared Exploration：日本位置天文観測衛星計画）と Roman 宇宙望遠鏡ミッションは、高精度の位置天文測定を通じて天の川銀河の理解を深めるために協力しています。
 
-## Getting Started
+## はじめに
 
-Check back soon for more documentation and resources about our astrometry work.
+位置天文学の研究に関する詳細なドキュメントとリソースは順次追加予定です。

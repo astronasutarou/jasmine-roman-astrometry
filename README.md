@@ -2,27 +2,27 @@
 
 ## GitHub Pages
 
-This repository is configured to automatically build and deploy documentation to GitHub Pages using MkDocs when changes are pushed to the `main` or `master` branch.
+このリポジトリは、`main` または `master` ブランチに変更がプッシュされると、MkDocs を使用してドキュメントを自動的にビルドし、GitHub Pages にデプロイするように設定されています。
 
-The deployment workflow can also be triggered manually from the Actions tab.
+デプロイワークフローは、Actions タブから手動でトリガーすることもできます。
 
-### How it works
+### 仕組み
 
-1. When changes are pushed to the `main` or `master` branch, the workflow automatically runs
-2. Python packages from `requirements.txt` are installed
-3. The website is generated using `mkdocs build` from the `docs/` directory
-4. The generated site is deployed to GitHub Pages
+1. `main` または `master` ブランチに変更がプッシュされると、ワークフローが自動的に実行されます
+2. `requirements.txt` から Python パッケージがインストールされます
+3. `docs/` ディレクトリから `mkdocs build` を使用してウェブサイトが生成されます
+4. 生成されたサイトが GitHub Pages にデプロイされます
 
-### To update the documentation
+### ドキュメントの更新方法
 
-1. Edit markdown files in the `docs/` directory
-2. Update `mkdocs.yml` to configure the site structure and theme
-3. Push changes to the `main` or `master` branch
-4. The workflow will automatically build and deploy your site
+1. `docs/` ディレクトリ内の markdown ファイルを編集します
+2. `mkdocs.yml` を更新してサイト構造とテーマを設定します
+3. `main` または `master` ブランチに変更をプッシュします
+4. ワークフローが自動的にサイトをビルドしてデプロイします
 
-### Local development
+### ローカル開発
 
-To build and preview the site locally:
+ローカルでサイトをビルドしてプレビューするには：
 ```bash
 pip install -r requirements.txt
 mkdocs serve
