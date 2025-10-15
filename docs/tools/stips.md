@@ -74,28 +74,28 @@ from stips.observation_module import ObservationModule
 
 # 観測パラメータ辞書
 obs = {
-'instrument': 'WFI',
-'filters': ['F129'],
-'detectors': 1,
-'background': 'pandeia',
-'observations_id': 42,
-'exptime': 300,
-'offsets': [{'offset_id': 1,
-'offset_centre': False,
-'offset_ra': 0.0,
-'offset_dec': 0.0,
-'offset_pa': 0.0}],
-'residuals': [{'residual_flat': True,
-'residual_dark': True,
-'residual_cosmic': False,
-'residual_poisson': True,
-'residual_readnoise': True}]
+    'instrument': 'WFI',
+    'filters': ['F129'],
+    'detectors': 1,
+    'background': 'pandeia',
+    'observations_id': 42,
+    'exptime': 300,
+    'offsets': [{'offset_id': 1,
+                 'offset_centre': False,
+                 'offset_ra': 0.0,
+                 'offset_dec': 0.0,
+                 'offset_pa': 0.0}],
+    'residuals': [{'residual_flat': True,
+                   'residual_dark': True,
+                   'residual_cosmic': False,
+                   'residual_poisson': True,
+                   'residual_readnoise': True}]
 }
 
 # 観測オブジェクト作成
 obm = ObservationModule(obs,
-ra=90, dec=30, pa=0,
-seed=42, cores=6)
+                       ra=90, dec=30, pa=0,
+                       seed=42, cores=6)
 ```
 
 #### C. シミュレーション実行
@@ -138,20 +138,20 @@ scm = SceneModule(out_prefix=obs_prefix, ra=obs_ra, dec=obs_dec)
 
 # 恒星個体群パラメータ
 stellar_parameters = {
-'n_stars': 100,
-'age_low': 7.5e12,
-'age_high': 7.5e12,
-'z_low': -2.0,
-'z_high': -2.0,
-'imf': 'kroupa',
-'binary_fraction': 0.1,
-'distribution': 'uniform',
-'clustered': False,
-'radius': 200, # arcsec
-'distance_low': 20000,
-'distance_high': 20000,
-'offset_ra': 0.0,
-'offset_dec': 0.0
+    'n_stars': 100,
+    'age_low': 7.5e12,
+    'age_high': 7.5e12,
+    'z_low': -2.0,
+    'z_high': -2.0,
+    'imf': 'kroupa',
+    'binary_fraction': 0.1,
+    'distribution': 'uniform',
+    'clustered': False,
+    'radius': 200, # arcsec
+    'distance_low': 20000,
+    'distance_high': 20000,
+    'offset_ra': 0.0,
+    'offset_dec': 0.0
 }
 
 stellar_cat_file = scm.CreatePopulation(stellar_parameters)
@@ -161,18 +161,18 @@ stellar_cat_file = scm.CreatePopulation(stellar_parameters)
 ```python
 # 銀河個体群パラメータ
 galaxy_parameters = {
-'n_gals': 10,
-'z_low': 0.0,
-'z_high': 0.2,
-'rad_low': 0.01,
-'rad_high': 2.0,
-'sb_v_low': 30.0,
-'sb_v_high': 25.0,
-'distribution': 'uniform',
-'clustered': False,
-'radius': 200, # arcsec
-'offset_ra': 0.0,
-'offset_dec': 0.0
+    'n_gals': 10,
+    'z_low': 0.0,
+    'z_high': 0.2,
+    'rad_low': 0.01,
+    'rad_high': 2.0,
+    'sb_v_low': 30.0,
+    'sb_v_high': 25.0,
+    'distribution': 'uniform',
+    'clustered': False,
+    'radius': 200, # arcsec
+    'offset_ra': 0.0,
+    'offset_dec': 0.0
 }
 
 galaxy_cat_file = scm.CreateGalaxies(galaxy_parameters)
@@ -183,19 +183,19 @@ galaxy_cat_file = scm.CreateGalaxies(galaxy_parameters)
 ```python
 # 異なるオフセットとノイズ残差での観測
 offset_2 = {
-'offset_id': 2,
-'offset_centre': False,
-'offset_ra': 10.0,
-'offset_dec': 0.0,
-'offset_pa': 27
+    'offset_id': 2,
+    'offset_centre': False,
+    'offset_ra': 10.0,
+    'offset_dec': 0.0,
+    'offset_pa': 27
 }
 
 residuals_2 = {
-'residual_flat': True,
-'residual_dark': False,
-'residual_cosmic': False,
-'residual_poisson': False,
-'residual_readnoise': True
+    'residual_flat': True,
+    'residual_dark': False,
+    'residual_cosmic': False,
+    'residual_poisson': False,
+    'residual_readnoise': True
 }
 
 # 新しい観測の実行
@@ -212,7 +212,7 @@ from astropy.io import fits
 
 # PSF ライブラリファイルの読み込み
 with fits.open('psf_WFI_2.0.0_F129_wfi01.fits') as hdul:
-test_psf = stips.utilities.makePSF.make_epsf(hdul[0].data[0])
+    test_psf = stips.utilities.makePSF.make_epsf(hdul[0].data[0])
 
 # PSF の表示
 vmin = np.percentile(test_psf, 5)
@@ -258,22 +258,22 @@ flux_jy = 1e-3 # Jansky 単位
 ### オフセット辞書
 ```python
 offset = {
-'offset_id': 1, # オフセット ID
-'offset_centre': False, # 中心化フラグ
-'offset_ra': 2.0, # RA オフセット (度)
-'offset_dec': 0.0, # DEC オフセット (度)
-'offset_pa': 0.5 # 位置角オフセット (度)
+    'offset_id': 1, # オフセット ID
+    'offset_centre': False, # 中心化フラグ
+    'offset_ra': 2.0, # RA オフセット (度)
+    'offset_dec': 0.0, # DEC オフセット (度)
+    'offset_pa': 0.5 # 位置角オフセット (度)
 }
 ```
 
 ### 残差辞書
 ```python
 residuals = {
-'residual_flat': True, # フラットフィールド残差
-'residual_dark': True, # ダーク残差
-'residual_cosmic': False, # 宇宙線除去残差
-'residual_poisson': True, # ポアソンノイズ残差
-'residual_readnoise': True # 読み出しノイズ残差
+    'residual_flat': True, # フラットフィールド残差
+    'residual_dark': True, # ダーク残差
+    'residual_cosmic': False, # 宇宙線除去残差
+    'residual_poisson': True, # ポアソンノイズ残差
+    'residual_readnoise': True # 読み出しノイズ残差
 }
 ```
 
