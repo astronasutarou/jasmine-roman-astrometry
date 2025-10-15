@@ -8,7 +8,7 @@ tags: [simulation, psf, point-spread function, Roman, WFI]
 
 ## 概要
 
-STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Function, PSF) をシミュレーションするための Python パッケージです。効率的な計算手法と最新のミッション固有参照データを使用し、幅広い観測モードと科学シナリオに対応します。
+STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Function, PSF) をシミュレーションするための Python パッケージです. 効率的な計算手法と最新のミッション固有参照データを使用し, 幅広い観測モードと科学シナリオに対応します.
 
 ## 対応機能
 
@@ -19,7 +19,7 @@ STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Func
 
 ### Coronograph Instrument - 制限あり
 - **現状**: Shaped Pupil Coronagraph (SPC) のプロトタイプのみ
-- **注意**: 2017 年以降更新されておらず、実装は不完全
+- **注意**: 2017 年以降更新されておらず, 実装は不完全
 
 ## インストールと基本使用
 
@@ -98,13 +98,13 @@ wfi.detector = 'SCA18'
 wfi.detector_position = (2044, 2044)
 
 oversample = 8
-fov = 3  # DET_SAMP extension のピクセル数
+fov = 3 # DET_SAMP extension のピクセル数
 psf_default = wfi.calc_psf(oversample=oversample, fov_pixels=fov)
 
 # ピクセル中心に配置した均等オーバーサンプリング PSF
 wfi.pixelscale /= oversample
 over = 1
-fov = 25  # 全エクステンションのピクセル数
+fov = 25 # 全エクステンションのピクセル数
 psf_centered = wfi.calc_psf(oversample=over, fov_pixels=fov)
 ```
 
@@ -118,7 +118,7 @@ psf_centered = wfi.calc_psf(oversample=over, fov_pixels=fov)
 - **視野依存収差**: 18 検出器 × 5 視野点での Noll Zernike 係数 (Z4-Z22)
 
 ### 波面誤差補間
-STPSF は Zernike 係数を位置と波長で補間し、任意の検出器位置での総波面誤差を計算します。
+STPSF は Zernike 係数を位置と波長で補間し, 任意の検出器位置での総波面誤差を計算します.
 
 ## 高度な機能
 
@@ -145,7 +145,7 @@ STPSF では以下の効果は **モデル化されません**:
 - ピクセル間容量結合
 - ノイズ源
 
-これらの効果が必要な場合は **STIPS** などの他ツールを使用してください。
+これらの効果が必要な場合は **STIPS** などの他ツールを使用してください.
 
 ### 光学系の近似
 - **主鏡研磨誤差**: Hubble Space Telescope (HST) の光学路差マップを近似として使用
@@ -153,19 +153,19 @@ STPSF では以下の効果は **モデル化されません**:
 
 ### 分散 PSF の制限
 - **非対応**: 分散分光 PSF (Prism/Grism の波長分散効果) は計算されません
-- **推奨手法**: 単色 PSF を複数計算し、適切な分散モデルと組み合わせ
+- **推奨手法**: 単色 PSF を複数計算し, 適切な分散モデルと組み合わせ
 
 ### エイリアシング
 - **大視野**: 700-800 ピクセルの大視野でエイリアシングアーティファクトが発生する可能性
 - **緩和策**: より大きなピクセル数の瞳画像使用 (現在未サポート)
 
 ### PSF サンプリング
-- **均等オーバーサンプリング**: PSF 中心が 4 ピクセルの交点に配置され、ピクセル中心ではない
+- **均等オーバーサンプリング**: PSF 中心が 4 ピクセルの交点に配置され, ピクセル中心ではない
 - **回避策**: オーバーサンプリングではなく WFI のピクセルスケール変更を使用
 
 ### Roman Coronagraph の制限
 - **SPC のみ**: Shaped Pupil Coronagraph 観測モードのみ
-- **静的シミュレーション**: 収差なし静的波面、リレー光学系なし、DM 制御なし
+- **静的シミュレーション**: 収差なし静的波面, リレー光学系なし, DM 制御なし
 
 ## リソースとサポート
 
@@ -175,7 +175,7 @@ STPSF では以下の効果は **モデル化されません**:
 - **ReadTheDocs**: [Roman Instrument Model](https://stpsf.readthedocs.io/en/latest/roman.html)
 
 ### インストール手順
-詳細は [ReadTheDocs インストールガイド](https://stpsf.readthedocs.io/en/latest/installation.html) を参照してください。
+詳細は [ReadTheDocs インストールガイド](https://stpsf.readthedocs.io/en/latest/installation.html) を参照してください.
 
 ### サポート
 - **Roman Help Desk**: [stsci.service-now.com/roman](https://stsci.service-now.com/roman)

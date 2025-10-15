@@ -2,9 +2,10 @@
 
 ## GitHub Pages
 
-このリポジトリは、`main` または `master` ブランチに変更がプッシュされると、MkDocs を使用してドキュメントを自動的にビルドし、GitHub Pages にデプロイするように設定されています。
+このリポジトリは, `main` または `master` ブランチに変更がプッシュされると MkDocs を使用してドキュメントを自動的にビルドし, GitHub Pages にデプロイするように設定されています.
 
-デプロイワークフローは、Actions タブから手動でトリガーすることもできます。
+ワークフローは Actions タブから手動でトリガーすることもできます.
+
 
 ### How it works
 
@@ -13,6 +14,7 @@
 3. `docs/` ディレクトリから `mkdocs build` を使用してウェブサイトが生成されます
 4. 生成されたサイトが GitHub Pages にデプロイされます
 
+
 ### To update the documentation
 
 1. `docs/` ディレクトリ内の markdown ファイルを編集します
@@ -20,9 +22,11 @@
 3. `main` または `master` ブランチに変更をプッシュします
 4. ワークフローが自動的にサイトをビルドしてデプロイします
 
+
 ### Local development
 
-ローカルでサイトをビルドしてプレビューするには：
+ローカルでサイトをビルドしてプレビューするには以下のコマンドを実行してください.
+
 ```bash
 pip install -r requirements.txt
 mkdocs serve

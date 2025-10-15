@@ -6,7 +6,7 @@ tags: [simulation, tools, Roman, STPSF, STIPS, Pandeia, Roman I-Sim]
 
 # Roman Simulation Tools
 
-Roman 宇宙望遠鏡の観測計画とデータ解析のためのシミュレーションツールとリソースの概要です。これらのツールは STScI の Roman Science Operations Center によって維持管理されています。
+Roman 宇宙望遠鏡の観測計画とデータ解析のためのシミュレーションツールとリソースの概要です. これらのツールは STScI の Roman Science Operations Center によって維持管理されています.
 
 ## 主要シミュレーションツール
 
@@ -15,7 +15,7 @@ Roman 宇宙望遠鏡の観測計画とデータ解析のためのシミュレ�
 stp
 - **機能**: 光学モデルから PSF を生成
 - **対象**: JWST と Roman 宇宙望遠鏡
-- **用途**: 観測計画、データ解析ツール開発
+- **用途**: 観測計画, データ解析ツール開発
 
 ### [STIPS](stips.md)
 **Space Telescope Imaging Product Simulator**
@@ -43,14 +43,14 @@ stp
 ### PySIAF
 **座標変換ツール**
 
-- **機能**: 装置、天文台、天球座標系間の変換
-- **用途**: 観測計画、データ処理
+- **機能**: 装置, 天文台, 天球座標系間の変換
+- **用途**: 観測計画, データ処理
 
 ### Synphot
 **合成測光ツール**
 
 - **機能**: 天体の合成測光計算
-- **用途**: 観測シミュレーション、データ解析
+- **用途**: 観測シミュレーション, データ解析
 
 ### Jupyter Footprint Viewer
 **観測フットプリント可視化ツール**
@@ -86,4 +86,4 @@ stp
 
 ---
 
-**詳細情報**: [Roman Help Desk](https://stsci.service-now.com/roman) または各ツールの個別ドキュメントをご参照ください。
+**詳細情報**: [Roman Help Desk](https://stsci.service-now.com/roman) または各ツールの個別ドキュメントをご参照ください.

@@ -8,7 +8,7 @@ tags: [simulation, imaging, Roman, WFI, STIPS]
 
 ## 概要
 
-STIPS (Space Telescope Imaging Product Simulator) は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の全検出器アレイの画像を高速生成する仕組みツールです。STIPS は Pandeia 露出時間計算機と STPSF 点広がり関数ジェネレータに依存して観測シミュレーションを実行します。
+STIPS (Space Telescope Imaging Product Simulator) は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の全検出器アレイの画像を高速生成する仕組みツールです. STIPS は Pandeia 露出時間計算機と STPSF 点広がり関数ジェネレータに依存して観測シミュレーションを実行します.
 
 ## 主要機能
 
@@ -21,8 +21,8 @@ STIPS (Space Telescope Imaging Product Simulator) は Roman 宇宙望遠鏡 Wide
 
 ### ワークフロー
 1. **天体シーン作成**: ユーザー定義カタログまたはシミュレートカタログ
-2. **観測設計**: 装置パラメータ、露出時間、オフセット設定
-3. **観測実行**: PSF 適用、ノイズ追加、FITS ファイル出力
+2. **観測設計**: 装置パラメータ, 露出時間, オフセット設定
+3. **観測実行**: PSF 適用, ノイズ追加, FITS ファイル出力
 
 ## インストールと設定
 
@@ -36,7 +36,7 @@ pip install pandeia.engine==2025.5
 ```
 
 ### 参照データ
-STIPS、Pandeia、STPSF の実行には複数の参照データセットが必要です。詳細なダウンロード手順は [ReadTheDocs インストールガイド](https://stsci-stips.readthedocs.io/en/stable/installation.html#downloading-required-reference-data) を参照してください。
+STIPS, Pandeia, STPSF の実行には複数の参照データセットが必要です. 詳細なダウンロード手順は [ReadTheDocs インストールガイド](https://stsci-stips.readthedocs.io/en/stable/installation.html#downloading-required-reference-data) を参照してください.
 
 ### インストール確認
 ```python
@@ -59,10 +59,10 @@ from astropy.io import fits
 
 # 2 つの点源を含むカタログ作成
 cols = []
-cols.append(fits.Column(name='id',   array=[1, 2],         format='K'))  # Object ID
-cols.append(fits.Column(name='ra',   array=[90.02, 90.03], format='D'))  # RA (度)
-cols.append(fits.Column(name='dec',  array=[29.98, 29.97], format='D'))  # DEC (度)
-cols.append(fits.Column(name='flux', array=[0.001, 0.005], format='D'))  # Flux (Jy)
+cols.append(fits.Column(name='id', array=[1, 2], format='K')) # Object ID
+cols.append(fits.Column(name='ra', array=[90.02, 90.03], format='D')) # RA (度)
+cols.append(fits.Column(name='dec', array=[29.98, 29.97], format='D')) # DEC (度)
+cols.append(fits.Column(name='flux', array=[0.001, 0.005], format='D')) # Flux (Jy)
 
 hdu = fits.BinTableHDU.from_columns(cols)
 hdu.writeto('catalog.fits', overwrite=True)
@@ -74,28 +74,28 @@ from stips.observation_module import ObservationModule
 
 # 観測パラメータ辞書
 obs = {
-    'instrument': 'WFI',
-    'filters': ['F129'],
-    'detectors': 1,
-    'background': 'pandeia',
-    'observations_id': 42,
-    'exptime': 300,
-    'offsets': [{'offset_id': 1,
-                 'offset_centre': False,
-                 'offset_ra': 0.0,
-                 'offset_dec': 0.0,
-                 'offset_pa': 0.0}],
-    'residuals': [{'residual_flat': True,
-                   'residual_dark': True,
-                   'residual_cosmic': False,
-                   'residual_poisson': True,
-                   'residual_readnoise': True}]
+'instrument': 'WFI',
+'filters': ['F129'],
+'detectors': 1,
+'background': 'pandeia',
+'observations_id': 42,
+'exptime': 300,
+'offsets': [{'offset_id': 1,
+'offset_centre': False,
+'offset_ra': 0.0,
+'offset_dec': 0.0,
+'offset_pa': 0.0}],
+'residuals': [{'residual_flat': True,
+'residual_dark': True,
+'residual_cosmic': False,
+'residual_poisson': True,
+'residual_readnoise': True}]
 }
 
 # 観測オブジェクト作成
 obm = ObservationModule(obs,
-                       ra=90, dec=30, pa=0,
-                       seed=42, cores=6)
+ra=90, dec=30, pa=0,
+seed=42, cores=6)
 ```
 
 #### C. シミュレーション実行
@@ -119,7 +119,7 @@ print(f"Output FITS file is {fits_file}")
 # 結果表示
 data = fits.open(fits_file)[1].data
 plt.imshow(data, origin='lower', vmin=np.percentile(data, 1),
-          vmax=np.percentile(data, 99))
+vmax=np.percentile(data, 99))
 plt.colorbar()
 plt.show()
 ```
@@ -138,20 +138,20 @@ scm = SceneModule(out_prefix=obs_prefix, ra=obs_ra, dec=obs_dec)
 
 # 恒星個体群パラメータ
 stellar_parameters = {
-    'n_stars': 100,
-    'age_low': 7.5e12,
-    'age_high': 7.5e12,
-    'z_low': -2.0,
-    'z_high': -2.0,
-    'imf': 'kroupa',
-    'binary_fraction': 0.1,
-    'distribution': 'uniform',
-    'clustered': False,
-    'radius': 200,  # arcsec
-    'distance_low': 20000,
-    'distance_high': 20000,
-    'offset_ra': 0.0,
-    'offset_dec': 0.0
+'n_stars': 100,
+'age_low': 7.5e12,
+'age_high': 7.5e12,
+'z_low': -2.0,
+'z_high': -2.0,
+'imf': 'kroupa',
+'binary_fraction': 0.1,
+'distribution': 'uniform',
+'clustered': False,
+'radius': 200, # arcsec
+'distance_low': 20000,
+'distance_high': 20000,
+'offset_ra': 0.0,
+'offset_dec': 0.0
 }
 
 stellar_cat_file = scm.CreatePopulation(stellar_parameters)
@@ -161,18 +161,18 @@ stellar_cat_file = scm.CreatePopulation(stellar_parameters)
 ```python
 # 銀河個体群パラメータ
 galaxy_parameters = {
-    'n_gals': 10,
-    'z_low': 0.0,
-    'z_high': 0.2,
-    'rad_low': 0.01,
-    'rad_high': 2.0,
-    'sb_v_low': 30.0,
-    'sb_v_high': 25.0,
-    'distribution': 'uniform',
-    'clustered': False,
-    'radius': 200,  # arcsec
-    'offset_ra': 0.0,
-    'offset_dec': 0.0
+'n_gals': 10,
+'z_low': 0.0,
+'z_high': 0.2,
+'rad_low': 0.01,
+'rad_high': 2.0,
+'sb_v_low': 30.0,
+'sb_v_high': 25.0,
+'distribution': 'uniform',
+'clustered': False,
+'radius': 200, # arcsec
+'offset_ra': 0.0,
+'offset_dec': 0.0
 }
 
 galaxy_cat_file = scm.CreateGalaxies(galaxy_parameters)
@@ -183,23 +183,23 @@ galaxy_cat_file = scm.CreateGalaxies(galaxy_parameters)
 ```python
 # 異なるオフセットとノイズ残差での観測
 offset_2 = {
-    'offset_id': 2,
-    'offset_centre': False,
-    'offset_ra': 10.0,
-    'offset_dec': 0.0,
-    'offset_pa': 27
+'offset_id': 2,
+'offset_centre': False,
+'offset_ra': 10.0,
+'offset_dec': 0.0,
+'offset_pa': 27
 }
 
 residuals_2 = {
-    'residual_flat': True,
-    'residual_dark': False,
-    'residual_cosmic': False,
-    'residual_poisson': False,
-    'residual_readnoise': True
+'residual_flat': True,
+'residual_dark': False,
+'residual_cosmic': False,
+'residual_poisson': False,
+'residual_readnoise': True
 }
 
 # 新しい観測の実行
-obm.nextObservation()  # 必須: 次の観測に移動
+obm.nextObservation() # 必須: 次の観測に移動
 # カタログ追加とシミュレーション実行...
 ```
 
@@ -212,7 +212,7 @@ from astropy.io import fits
 
 # PSF ライブラリファイルの読み込み
 with fits.open('psf_WFI_2.0.0_F129_wfi01.fits') as hdul:
-    test_psf = stips.utilities.makePSF.make_epsf(hdul[0].data[0])
+test_psf = stips.utilities.makePSF.make_epsf(hdul[0].data[0])
 
 # PSF の表示
 vmin = np.percentile(test_psf, 5)
@@ -228,15 +228,15 @@ plt.show()
 import matplotlib.patches as patches
 
 # 既存画像に PSF を追加
-PSF_UPSCALE = 4  # STIPS のデフォルト upscaling 係数
+PSF_UPSCALE = 4 # STIPS のデフォルト upscaling 係数
 
 # PSF 中心とサイズの計算
 psf_middle = len(test_psf) / 2.0
 psf_size = len(test_psf) / PSF_UPSCALE
 
 # 指定位置に PSF を挿入
-location_px = (1000, 1500)  # ピクセル座標
-flux_jy = 1e-3  # Jansky 単位
+location_px = (1000, 1500) # ピクセル座標
+flux_jy = 1e-3 # Jansky 単位
 
 # PSF を画像に追加 (詳細な実装は ReadTheDocs を参照)
 ```
@@ -258,22 +258,22 @@ flux_jy = 1e-3  # Jansky 単位
 ### オフセット辞書
 ```python
 offset = {
-    'offset_id': 1,        # オフセット ID
-    'offset_centre': False, # 中心化フラグ
-    'offset_ra': 2.0,      # RA オフセット (度)
-    'offset_dec': 0.0,     # DEC オフセット (度)
-    'offset_pa': 0.5       # 位置角オフセット (度)
+'offset_id': 1, # オフセット ID
+'offset_centre': False, # 中心化フラグ
+'offset_ra': 2.0, # RA オフセット (度)
+'offset_dec': 0.0, # DEC オフセット (度)
+'offset_pa': 0.5 # 位置角オフセット (度)
 }
 ```
 
 ### 残差辞書
 ```python
 residuals = {
-    'residual_flat': True,      # フラットフィールド残差
-    'residual_dark': True,      # ダーク残差
-    'residual_cosmic': False,   # 宇宙線除去残差
-    'residual_poisson': True,   # ポアソンノイズ残差
-    'residual_readnoise': True  # 読み出しノイズ残差
+'residual_flat': True, # フラットフィールド残差
+'residual_dark': True, # ダーク残差
+'residual_cosmic': False, # 宇宙線除去残差
+'residual_poisson': True, # ポアソンノイズ残差
+'residual_readnoise': True # 読み出しノイズ残差
 }
 ```
 
@@ -282,7 +282,7 @@ residuals = {
 ### 内部処理手順
 1. **観測初期化**: 指定検出器・フィルターでの観測設定
 2. **PSF ライブラリ読み込み**: 各検出器の 3×3 グリッド PSF (4 倍オーバーサンプリング)
-3. **源カタログ処理**:
+3. **ソースカタログ処理**:
    - 双線形補間による最適 PSF 形状生成
    - 双三次補間による PSF 中心配置
 4. **ノイズ・背景追加**: 指定されたノイズ残差と背景レベルの追加
@@ -314,7 +314,7 @@ STIPS の PSF モデル半径は標準で 22 WFI ピクセルに制限されて�
 | `psf_bright_limit` | この等級より明るい星は大半径で計算 | 44 | 4.84 |
 | `psf_xbright_limit` | この等級より明るい星は特大半径で計算 | 88 | 9.68 |
 
-**注意**: 明るい天体の計算時間は標準の 4 倍 (bright) から 16 倍 (extra-bright) に増加します。
+**注意**: 明るい天体の計算時間は標準の 4 倍 (bright) から 16 倍 (extra-bright) に増加します.
 
 ### その他の制限事項
 - **ピクセル飽和**: 現在サポートされていません
