@@ -59,10 +59,10 @@ from astropy.io import fits
 
 # 2 つの点源を含むカタログ作成
 cols = []
-cols.append(fits.Column(name='id', array=[1, 2], format='K')) # Object ID
-cols.append(fits.Column(name='ra', array=[90.02, 90.03], format='D')) # RA (度)
-cols.append(fits.Column(name='dec', array=[29.98, 29.97], format='D')) # DEC (度)
-cols.append(fits.Column(name='flux', array=[0.001, 0.005], format='D')) # Flux (Jy)
+cols.append(fits.Column(name='id',   array=[1, 2],         format='K'))  # Object ID
+cols.append(fits.Column(name='ra',   array=[90.02, 90.03], format='D'))  # RA (度)
+cols.append(fits.Column(name='dec',  array=[29.98, 29.97], format='D'))  # DEC (度)
+cols.append(fits.Column(name='flux', array=[0.001, 0.005], format='D'))  # Flux (Jy)
 
 hdu = fits.BinTableHDU.from_columns(cols)
 hdu.writeto('catalog.fits', overwrite=True)
@@ -147,7 +147,7 @@ stellar_parameters = {
     'binary_fraction': 0.1,
     'distribution': 'uniform',
     'clustered': False,
-    'radius': 200, # arcsec
+    'radius': 200,      # arcsec
     'distance_low': 20000,
     'distance_high': 20000,
     'offset_ra': 0.0,
@@ -170,7 +170,7 @@ galaxy_parameters = {
     'sb_v_high': 25.0,
     'distribution': 'uniform',
     'clustered': False,
-    'radius': 200, # arcsec
+    'radius': 200,      # arcsec
     'offset_ra': 0.0,
     'offset_dec': 0.0
 }
@@ -199,7 +199,7 @@ residuals_2 = {
 }
 
 # 新しい観測の実行
-obm.nextObservation() # 必須: 次の観測に移動
+obm.nextObservation()  # 必須: 次の観測に移動
 # カタログ追加とシミュレーション実行...
 ```
 
@@ -228,7 +228,7 @@ plt.show()
 import matplotlib.patches as patches
 
 # 既存画像に PSF を追加
-PSF_UPSCALE = 4 # STIPS のデフォルト upscaling 係数
+PSF_UPSCALE = 4            # STIPS のデフォルト upscaling 係数
 
 # PSF 中心とサイズの計算
 psf_middle = len(test_psf) / 2.0
@@ -236,7 +236,7 @@ psf_size = len(test_psf) / PSF_UPSCALE
 
 # 指定位置に PSF を挿入
 location_px = (1000, 1500) # ピクセル座標
-flux_jy = 1e-3 # Jansky 単位
+flux_jy = 1e-3             # Jansky 単位
 
 # PSF を画像に追加 (詳細な実装は ReadTheDocs を参照)
 ```
@@ -258,22 +258,22 @@ flux_jy = 1e-3 # Jansky 単位
 ### オフセット辞書
 ```python
 offset = {
-    'offset_id': 1, # オフセット ID
-    'offset_centre': False, # 中心化フラグ
-    'offset_ra': 2.0, # RA オフセット (度)
-    'offset_dec': 0.0, # DEC オフセット (度)
-    'offset_pa': 0.5 # 位置角オフセット (度)
+    'offset_id':     1,       # オフセット ID
+    'offset_centre': False,   # 中心化フラグ
+    'offset_ra':     2.0,     # RA オフセット (度)
+    'offset_dec':    0.0,     # DEC オフセット (度)
+    'offset_pa':     0.5      # 位置角オフセット (度)
 }
 ```
 
 ### 残差辞書
 ```python
 residuals = {
-    'residual_flat': True, # フラットフィールド残差
-    'residual_dark': True, # ダーク残差
-    'residual_cosmic': False, # 宇宙線除去残差
-    'residual_poisson': True, # ポアソンノイズ残差
-    'residual_readnoise': True # 読み出しノイズ残差
+    'residual_flat':    True,    # フラットフィールド残差
+    'residual_dark':    True,    # ダーク残差
+    'residual_cosmic':  False,   # 宇宙線除去残差
+    'residual_poisson': True,    # ポアソンノイズ残差
+    'residual_readnoise': True   # 読み出しノイズ残差
 }
 ```
 
