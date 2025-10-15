@@ -66,3 +66,5 @@ nav:
     - 'STIPS': tools/stips.md
   - 'Instruments':
     - 'Wide Field Instrument (WFI)': inst/wfi.md
+  - 'Follow-up observation':
+    - 'Subaru Telescope': obs/subaru.md
