@@ -15,13 +15,13 @@ tags: [Roman, WFI, ASDF, datamodels, format]
 - [Roman datamodels](https://roman-datamodels.readthedocs.io/en/latest/)
 
 
-Advanced Scientific Data Format (ASDF) は、Nancy Grace Roman Space Telescope の主要なデータフォーマットとして採用された次世代の天文データ形式です。ASDF は FITS の後継として設計され、階層構造のメタデータ、効率的なバイナリデータ圧縮、スキーマ検証などの先進的な機能を提供します。
+Advanced Scientific Data Format (ASDF) は, Nancy Grace Roman Space Telescope の主要なデータフォーマットとして採用された次世代の天文データ形式です. ASDF は FITS の後継として設計され, 階層構造のメタデータ, 効率的なバイナリデータ圧縮, スキーマ検証などの先進的な機能を提供します.
 
 ## 概要
 
 ### ASDF とは
 
-ASDF (Advanced Scientific Data Format; "AZ-diff" と発音) は、天文学データのアーカイブのための次世代交換フォーマットです。ASDF ファイルは人間が読み取り可能なテキストベースのメタデータとバイナリデータから構成されます。
+ASDF (Advanced Scientific Data Format; "AZ-diff" と発音) は, 天文学データのアーカイブのための次世代交換フォーマットです. ASDF ファイルは人間が読み取り可能なテキストベースのメタデータとバイナリデータから構成されます.
 
 ### 主要な特徴
 
@@ -34,7 +34,7 @@ ASDF (Advanced Scientific Data Format; "AZ-diff" と発音) は、天文学デ�
 
 ### FITS からの進歩
 
-ASDF は FITS の制限を克服するために設計されています：
+ASDF は FITS の制限を克服するために設計されています:
 
 - **属性名サイズ制限なし**: FITS キーワード名の制限を解除
 - **値の型・サイズ制限なし**: 属性値の制限を撤廃
@@ -46,15 +46,15 @@ ASDF は FITS の制限を克服するために設計されています：
 
 ### Roman データパイプライン
 
-Roman 望遠鏡のキャリブレーションパイプライン (`romancal`) は ASDF データ製品を専用に処理するよう設計されています。JWST、Daniel K. Inouye Solar Telescope (DKIST) とともに、STScI が活発に開発・保守を行っています。
+Roman 望遠鏡のキャリブレーションパイプライン (`romancal`) は ASDF データ製品を専用に処理するよう設計されています. JWST, Daniel K. Inouye Solar Telescope (DKIST) とともに, STScI が活発に開発・保守を行っています.
 
 ### Roman Datamodels パッケージ
 
-`roman_datamodels` パッケージは Roman WFI ASDF ファイルの読み書き機能を提供し、ドット記法によるファイル内容アクセスなどの便利な機能を追加します。
+`roman_datamodels` パッケージは Roman WFI ASDF ファイルの読み書き機能を提供し, ドット記法によるファイル内容アクセスなどの便利な機能を追加します.
 
 ### スキーマ検証
 
-Roman ASDF データ製品の構造と内容を定義・検証するスキーマは、Roman Attribute Dictionary (RAD) GitHub リポジトリにホストされています。
+Roman ASDF データ製品の構造と内容を定義・検証するスキーマは, Roman Attribute Dictionary (RAD) GitHub リポジトリにホストされています.
 
 ## インストールと設定
 
@@ -120,7 +120,7 @@ print(data.shape)  # (4088, 4088)
 
 ### 圧縮サポート
 
-ASDF は複数の無損失圧縮アルゴリズムをサポートします：
+ASDF は複数の無損失圧縮アルゴリズムをサポートします:
 
 - **bzip2**: 高圧縮率
 - **zlib**: バランス型圧縮
@@ -196,7 +196,7 @@ print(f"Filter: {inst_info.optical_element}")
 ### 互換性
 
 - **Python 実装**: 完全な実装は Python のみ
-- **他言語サポート**: Java (asdf-java)、C (libasdf) は開発中
+- **他言語サポート**: Java (asdf-java), C (libasdf) は開発中
 - **IDL サポート**: IDL 8.9 以降で部分サポート
 
 ### Roman 特有の制限
