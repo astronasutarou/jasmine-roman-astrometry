@@ -68,5 +68,7 @@ nav:
     - 'I-Sim': tools/i-sim.md
   - 'Instruments':
     - 'Wide Field Instrument (WFI)': inst/wfi.md
+    - 'Instrument Aperture': inst/siaf.md
+    - 'Data Format': inst/asdf.md
   - 'Follow-up observation':
     - 'Subaru Telescope': obs/subaru.md
