@@ -12,6 +12,8 @@ tags: [simulation, psf, point-spread function, Roman, WFI]
 - [Overview of STPSF](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/overview-of-stpsf)
 - [STPSF Tutorials](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/stpsf-tutorials)
 - [Caveats of using STPSF for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/caveats-of-using-stpsf-for-roman)
+- [STPSF on readthedocs](https://stpsf.readthedocs.io/en/latest/index.html)
+
 
 ## 概要
 
