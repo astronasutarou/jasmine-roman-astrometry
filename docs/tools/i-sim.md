@@ -1,7 +1,7 @@
 ---
 title: I-Sim for Roman
 description: GalSim-based high-fidelity image simulator for the Nancy Grace Roman Space Telescope
-tags: [simulation, imaging, Roman, WFI, I-Sim, GalSim, ASDF]
+tags: [simulation, imaging, Roman, WFI, I-Sim, GalSim]
 ---
 
 # Roman I-Sim &ndash; The Roman Image Simulator
