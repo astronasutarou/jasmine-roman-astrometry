@@ -14,9 +14,10 @@ icon: material/flare
 
 これは JASMINE-Roman 位置天文チームのドキュメントサイトです. ここでは Roman 宇宙望遠鏡の観測装置やデータに関する情報をまとめています.
 
+
 ## About
 
-JASMINE (Japan Astrometry Satellite Mission for INfrared Exploration：日本位置天文観測衛星計画) と Roman 宇宙望遠鏡ミッションは, 高精度の位置天文測定を通じて天の川銀河の理解を深めるために協力しています.
+JASMINE (Japan Astrometry Satellite Mission for INfrared Exploration) では高精度の位置天文測定を実施するための技術開発を進めています. Roman 宇宙望遠鏡で得られる広視野赤外線天文画像をもちいて開発した技術の検証をおこない, 天の川銀河の理解を深めるためのサイエンスを展開することを目標としています.
 
 ## Getting Started
 
