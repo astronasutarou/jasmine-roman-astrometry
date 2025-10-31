@@ -6,6 +6,13 @@ tags: [simulation, psf, point-spread function, Roman, WFI]
 
 # STPSF for Roman
 
+このページの内容は主に以下のソースを引用・参考にしています:
+
+- [STPSF for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman)
+- [Overview of STPSF](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/overview-of-stpsf)
+- [STPSF Tutorials](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/stpsf-tutorials)
+- [Caveats of using STPSF for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/caveats-of-using-stpsf-for-roman)
+
 ## 概要
 
 STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Function, PSF) をシミュレーションするための Python パッケージです. 効率的な計算手法と最新のミッション固有参照データを使用し, 幅広い観測モードと科学シナリオに対応します.

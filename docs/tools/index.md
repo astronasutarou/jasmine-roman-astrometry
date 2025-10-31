@@ -6,7 +6,12 @@ tags: [simulation, tools, Roman, STPSF, STIPS, Pandeia, Roman I-Sim]
 
 # Roman Simulation Tools
 
-Roman 宇宙望遠鏡の観測計画とデータ解析のためのシミュレーションツールとリソースの概要です. これらのツールは STScI の Roman Science Operations Center によって維持管理されています.
+このページの内容は主に以下のソースを引用・参考にしています:
+
+- [Simulation Tools Handbook Home](https://roman-docs.stsci.edu/simulation-tools-handbook-home)
+
+
+Roman 宇宙望遠鏡の観測計画とデータ解析のためのシミュレーションツールとリソースの概要をまとめます. これらのツールは STScI の Roman Science Operations Center によって維持管理されています.
 
 ## 主要シミュレーションツール
 

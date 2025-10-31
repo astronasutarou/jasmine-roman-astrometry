@@ -64,6 +64,8 @@ nav:
     - 'Overview': tools/index.md
     - 'STPSF': tools/stpsf.md
     - 'STIPS': tools/stips.md
+    - 'Pandeia': tools/pandeia.md
+    - 'I-Sim': tools/i-sim.md
   - 'Instruments':
     - 'Wide Field Instrument (WFI)': inst/wfi.md
   - 'Follow-up observation':

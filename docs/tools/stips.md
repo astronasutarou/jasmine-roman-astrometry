@@ -6,6 +6,13 @@ tags: [simulation, imaging, Roman, WFI, STIPS]
 
 # STIPS for Roman
 
+このページの内容は主に以下のソースを引用・参考にしています:
+
+- [STIPS - Space Telescope Imaging Product Simulator](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stips-space-telescope-imaging-product-simulator)
+- [Overview of STIPS](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stips-space-telescope-imaging-product-simulator/overview-of-stips)
+- [STIPS Tutorials](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stips-space-telescope-imaging-product-simulator/stips-tutorials)
+- [Caveats of using STIPS for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stips-space-telescope-imaging-product-simulator/caveats-of-using-stips-for-roman)
+
 ## 概要
 
 STIPS (Space Telescope Imaging Product Simulator) は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の全検出器アレイの画像を高速生成する仕組みツールです. STIPS は Pandeia 露出時間計算機と STPSF 点広がり関数ジェネレータに依存して観測シミュレーションを実行します.
