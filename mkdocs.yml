@@ -66,6 +66,8 @@ nav:
     - 'STIPS': tools/stips.md
     - 'Pandeia': tools/pandeia.md
     - 'I-Sim': tools/i-sim.md
+  - 'Training':
+    - 'RTS': training/index.md
   - 'Instruments':
     - 'Wide Field Instrument (WFI)': inst/wfi.md
     - 'Instrument Aperture': inst/siaf.md
