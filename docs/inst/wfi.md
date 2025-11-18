@@ -8,7 +8,7 @@ tags: [WFI, Wide Field Instrument, Roman, imaging, detectors, filters]
 
 ## 概要
 
-Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤外線 (0.5-2.3 μm) での撮像および分光観測機能を提供します. WFI 撮像モードは Hubble 宇宙望遠鏡の近赤外線能力と同等の解像度を持ちながら, 視野は 200 倍広くカバーします.
+Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤外線 (0.5-2.3 μm) での撮像および分光観測機能を提供する. WFI 撮像モードは Hubble 宇宙望遠鏡の近赤外線能力と同等の解像度を持ちながら, 視野は 200 倍広くカバーする.
 
 ## 主要仕様
 
@@ -27,7 +27,7 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 | HST/ACS | 2.4 m | 0.003 平方度 | 0.05 arcsec/pix | 0.2-1.0 μm |
 | JWST/NIRCam | 6.5 m | 0.001 平方度 | 0.03 arcsec/pix | 0.6-5.0 μm |
 
-**視野比較**: Roman WFI は HST/ACS の約 100 倍, JWST/NIRCam の約 200 倍の視野を持ちます.
+**視野比較**: Roman WFI は HST/ACS の約 100 倍, JWST/NIRCam の約 200 倍の視野を持つ.
 
 ## 撮像フィルター
 
@@ -68,7 +68,7 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 - **第 2 行**: SCA02, SCA05, SCA08, SCA11, SCA14, SCA17
 - **第 3 行**: SCA03, SCA06, SCA09, SCA12, SCA15, SCA18
 
-検出器の配向は波面誤差を最小化するよう最適化されており, 第 1・2 行は上下逆向き, 第 3 行は正向きに配置されています.
+検出器の配向は波面誤差を最小化するよう最適化されており, 第 1・2 行は上下逆向き, 第 3 行は正向きに配置されている.
 
 ### 読み出し方式
 - **並列読み出し**: 32 アンプ同時動作 (各 128 列担当)
@@ -173,25 +173,6 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 - **分光**: Prism (R~80-180), Grism (R~451)
 - **ガイド**: 連続ファインガイダンス
 - **校正**: 内蔵 RCS による高精度校正
-
-## リソースとドキュメント
-
-### 技術情報
-- **Roman Technical Information Repository**: [GitHub v1.2](https://github.com/RomanSpaceTelescope/roman-technical-information/tree/v1.2)
-- **フィルター情報**: `/data/WideFieldInstrument/Imaging/`
-- **検出器性能**: `/data/WideFieldInstrument/Detectors/`
-- **観測制約**: `/data/Observatory/Visibility/`
-
-### ソフトウェアツール
-- **PySIAF**: 座標変換ユーティリティ
-- **Synphot**: フィルター応答関数アクセス
-- **STPSF**: PSF シミュレーション
-- **STIPS**: 撮像シミュレーション
-
-### サポート
-- **Roman Help Desk**: [stsci.service-now.com/roman](https://stsci.service-now.com/roman)
-- **STScI Roman Pages**: [stsci.edu/roman](https://www.stsci.edu/roman)
-- **GSFC Roman Pages**: [roman.gsfc.nasa.gov](https://roman.gsfc.nasa.gov/)
 
 ---
 
