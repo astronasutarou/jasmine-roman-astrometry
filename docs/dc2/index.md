@@ -21,9 +21,7 @@ tags: [simulation, data challenge, Roman]
 この論文では Nancy Grace Roman 宇宙望遠鏡の高緯度撮像サーベイ (HLIS) と Vera C. Rubin 天文台の Legacy Survey of Space and Time (LSST) の観測領域のうち, 重複する 20 平方度の領域においてシミュレートした観測画像を提示している.
 
 
-## 主な内容
-
-### シミュレーション概要
+## シミュレーション概要
 
 - **観測範囲**: HLIS, LSST の重複領域のうち 20 平方度
 - **データ**:
@@ -36,7 +34,7 @@ tags: [simulation, data challenge, Roman]
     - フィルタ: u, g, r, i, z
 
 
-### Roman HLIS Simulation
+## Roman HLIS Simulation
 
 - Point-Spread Function (PSF)
     - 高解像度 (2048&times;2048) の瞳モデルから PSF を生成
@@ -57,7 +55,8 @@ tags: [simulation, data challenge, Roman]
 
 実際のサーベイを想定した観測計画に基づいて single exposure images を生成, それらを決められた領域で足し合わせることでより深い coadded images を作成している. coadded images のサイズは 8825&times;8825 ピクセルであり, 周囲の 500 pixel は隣接する領域とオーバラップしている. ピクセルスケールは 0.0575 arcsec であり, J129 フィルタで Nyquist sampling を達成するように設計されている.
 
-### データ
+
+## データセット
 
 Troxel et al. (2023) で生成したデータセットは以下の通り.
 
@@ -78,7 +77,7 @@ Troxel et al. (2023) で生成したデータセットは以下の通り.
 
 ---
 
-#### 論文情報
+## 参考文献
 
 - Troxel, M. A. et al. (2023)
     - A joint Roman Space Telescope and Rubin Observatory synthetic wide-field imaging survey
