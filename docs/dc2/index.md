@@ -81,17 +81,17 @@ Troxel et al. (2023) で生成したデータセットは以下の通り.
 #### 論文情報
 
 - Troxel, M. A. et al. (2023)
-  - A joint Roman Space Telescope and Rubin Observatory synthetic wide-field imaging survey
-  - Monthly Notices of the Royal Astronomical Society, 522, 2801
-  - DOI: [10.1093/mnras/stad664](https://doi.org/10.1093/mnras/stad664)
-  - arXiv: [2209.06829](https://arxiv.org/abs/2209.06829)
+    - A joint Roman Space Telescope and Rubin Observatory synthetic wide-field imaging survey
+    - Monthly Notices of the Royal Astronomical Society, 522, 2801
+    - DOI: [10.1093/mnras/stad664](https://doi.org/10.1093/mnras/stad664)
+    - arXiv: [2209.06829](https://arxiv.org/abs/2209.06829)
 - Troxel, M. A. et al. (2021)
-  - A synthetic Roman Space Telescope High-Latitude Imaging Survey: simulation suite and the impact of wavefront errors on weak gravitational lensing
-  - Monthly Notices of the Royal Astronomical Society, 501, 2044
-  - DOI: [10.1093/mnras/staa3658](https://doi.org/10.1093/mnras/staa3658)
-  - arXiv: [1912.09481](https://arxiv.org/abs/1912.09481)
+    - A synthetic Roman Space Telescope High-Latitude Imaging Survey: simulation suite and the impact of wavefront errors on weak gravitational lensing
+    - Monthly Notices of the Royal Astronomical Society, 501, 2044
+    - DOI: [10.1093/mnras/staa3658](https://doi.org/10.1093/mnras/staa3658)
+    - arXiv: [1912.09481](https://arxiv.org/abs/1912.09481)
 - Rowe, B. T. P. et al. (2015)
-  - GALSIM: The modular galaxy image simulation toolkit
-  - Astronomy and Computing, 10, 121
-  - DOI: [10.1016/j.ascom.2015.02.002](https://doi.org/10.1016/j.ascom.2015.02.002)
-  - arXiv: [1407.7676](https://arxiv.org/abs/1407.7676)
+    - GALSIM: The modular galaxy image simulation toolkit
+    - Astronomy and Computing, 10, 121
+    - DOI: [10.1016/j.ascom.2015.02.002](https://doi.org/10.1016/j.ascom.2015.02.002)
+    - arXiv: [1407.7676](https://arxiv.org/abs/1407.7676)
