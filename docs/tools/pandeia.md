@@ -6,7 +6,7 @@ tags: [simulation, ETC, exposure time, Roman, WFI, Pandeia]
 
 # Pandeia for Roman
 
-このページの内容は主に以下のソースを引用・参考にしています:
+このページの内容は主に以下のソースを引用・参考にしている:
 
 - [Roman WFI Exposure Time Calculator](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator)
 - [Pandeia for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/pandeia-for-roman)
@@ -16,7 +16,7 @@ tags: [simulation, ETC, exposure time, Roman, WFI, Pandeia]
 
 ## 概要
 
-Pandeia は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の露出時間計算と信号対雑音比推定を行う Python ベースのエンジンです. もともと JWST 用の ETC システムとして開発されましたが, Roman にも対応し, 小さく複雑な天体シーンを生成して様々な観測戦略での信号対雑音比を計算できます.
+Pandeia は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の露出時間計算と信号対雑音比推定を行う Python ベースのエンジンである. もともと JWST 用の ETC システムとして開発されたが, Roman にも対応し, 小さく複雑な天体シーンを生成して様々な観測戦略での信号対雑音比を計算できる.
 
 ## 主要機能
 
@@ -53,7 +53,7 @@ pip install pandeia.engine==2025.5
 ```
 
 ### 参照データの設定
-Pandeia の実行には以下の参照データが必要です:
+Pandeia の実行には以下の参照データが必要になる:
 
 1. **Nancy Grace Roman Space Telescope データ**
 2. **Synphot ベース参照アトラス**
@@ -263,10 +263,6 @@ calc['configuration']['instrument']['filter'] = 'f129'
 report = perform_calculation(calc)
 ```
 
-### STIPS との役割分担
-- **Pandeia**: 小視野高精度計算, 露出時間最適化
-- **STIPS**: 大視野全検出器シミュレーション, 深宇宙サーベイ
-
 ## バージョン情報と今後の開発
 
 ### 現在のバージョン
@@ -275,28 +271,8 @@ report = perform_calculation(calc)
 - **参照データ**: GSFC Instrument Reference Information
 
 ### 開発状況
-Roman モジュールは活発に開発中で, 以下の改善が予定されています:
+Roman モジュールは活発に開発中で, 以下の改善が予定されている:
+
 - 検出器特性のより正確なモデル化
 - 背景モデルの精度向上
 - 打ち上げ後の実測データによる校正
-
-## リソースとサポート
-
-### ドキュメント
-- **Roman 用 Pandeia**: [STScI Roman Docs](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/pandeia-for-roman)
-- **JWST 用 Pandeia**: [JDox Pandeia Tutorial](https://jwst-docs.stsci.edu/jwst-exposure-time-calculator-overview/jwst-etc-pandeia-engine-tutorial)
-- **設定辞書**: [Pandeia Configuration](https://jwst-docs.stsci.edu/jwst-exposure-time-calculator-overview/jwst-etc-pandeia-engine-tutorial/pandeia-configuration-dictionaries)
-
-### ソフトウェア
-- **Web インターフェース**: [Roman ETC](https://roman.etc.stsci.edu/)
-- **インストールガイド**: [Pandeia Engine Installation](https://outerspace.stsci.edu/display/PEN/Pandeia+Engine+Installation)
-- **既知の問題**: [Known Issues Documentation](https://stsci.service-now.com/roman?id=kb_category&kb_category=7e590661c3941a9047233afb05013100)
-
-### サポート
-- **Roman Help Desk**: [stsci.service-now.com/roman](https://stsci.service-now.com/roman)
-- **GitHub Issues**: 各ツールの GitHub リポジトリ
-- **STScI Roman Pages**: [stsci.edu/roman](https://www.stsci.edu/roman)
-
----
-
-**更新情報**: Pandeia for Roman version 2025.5 および Roman Technical Information に基づく (2025年10月現在)

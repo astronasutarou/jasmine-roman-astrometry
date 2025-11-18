@@ -6,7 +6,7 @@ tags: [simulation, imaging, Roman, WFI, STIPS]
 
 # STIPS for Roman
 
-このページの内容は主に以下のソースを引用・参考にしています:
+このページの内容は主に以下のソースを引用・参考にしている:
 
 - [STIPS - Space Telescope Imaging Product Simulator](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stips-space-telescope-imaging-product-simulator)
 - [Overview of STIPS](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stips-space-telescope-imaging-product-simulator/overview-of-stips)
@@ -15,7 +15,7 @@ tags: [simulation, imaging, Roman, WFI, STIPS]
 
 ## 概要
 
-STIPS (Space Telescope Imaging Product Simulator) は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の全検出器アレイの画像を高速生成する仕組みツールです. STIPS は Pandeia 露出時間計算機と STPSF 点広がり関数ジェネレータに依存して観測シミュレーションを実行します.
+STIPS (Space Telescope Imaging Product Simulator) は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) の全検出器アレイの画像を高速生成する仕組みツールである. STIPS は Pandeia 露出時間計算機と STPSF 点広がり関数ジェネレータに依存して観測シミュレーションを実行する.
 
 ## 主要機能
 
@@ -43,7 +43,7 @@ pip install pandeia.engine==2025.5
 ```
 
 ### 参照データ
-STIPS, Pandeia, STPSF の実行には複数の参照データセットが必要です. 詳細なダウンロード手順は [ReadTheDocs インストールガイド](https://stsci-stips.readthedocs.io/en/stable/installation.html#downloading-required-reference-data) を参照してください.
+STIPS, Pandeia, STPSF の実行には複数の参照データセットが必要になる. 詳細なダウンロード手順は [ReadTheDocs インストールガイド](https://stsci-stips.readthedocs.io/en/stable/installation.html#downloading-required-reference-data) を参照.
 
 ### インストール確認
 ```python
@@ -313,7 +313,7 @@ residuals = {
 - **代替**: Level 1 (L1) データが必要な場合は **Roman I-Sim** を使用
 
 ### 明るい天体の PSF 制限
-STIPS の PSF モデル半径は標準で 22 WFI ピクセルに制限されています:
+STIPS の PSF モデル半径は標準で 22 WFI ピクセルに制限されている:
 
 | 設定 | 説明 | 半径 (ピクセル) | 半径 (arcsec) |
 |------|------|----------------|----------------|
@@ -321,11 +321,11 @@ STIPS の PSF モデル半径は標準で 22 WFI ピクセルに制限されて�
 | `psf_bright_limit` | この等級より明るい星は大半径で計算 | 44 | 4.84 |
 | `psf_xbright_limit` | この等級より明るい星は特大半径で計算 | 88 | 9.68 |
 
-**注意**: 明るい天体の計算時間は標準の 4 倍 (bright) から 16 倍 (extra-bright) に増加します.
+**注意**: 明るい天体の計算時間は標準の 4 倍 (bright) から 16 倍 (extra-bright) に増加する.
 
 ### その他の制限事項
-- **ピクセル飽和**: 現在サポートされていません
-- **非線形性残差**: 現在サポートされていません
+- **ピクセル飽和**: 現在サポートされていない
+- **非線形性残差**: 現在サポートされていない
 - **MA テーブル**: Multi Accumulation テーブル非対応 (固定露出時間のみ)
 
 ## カタログ形式
@@ -352,6 +352,6 @@ STIPS の PSF モデル半径は標準で 22 WFI ピクセルに制限されて�
 - **バージョン**: STIPS version 2.3.0 (2025年6月27日リリース)
 
 ### 引用文献
-STIPS を使用した研究では以下の論文の引用を推奨します:
+STIPS を使用した研究では以下の論文の引用すること.
 
-STIPS Development Team et al 2024, "[STIPS: The Nancy Grace Roman Space Telescope Imaging Product Simulator](https://ui.adsabs.harvard.edu/abs/2024arXiv241111978S/abstract)", PASP 136 124502
+- STIPS Development Team et al 2024, "[STIPS: The Nancy Grace Roman Space Telescope Imaging Product Simulator](https://ui.adsabs.harvard.edu/abs/2024arXiv241111978S/abstract)", PASP 136 124502

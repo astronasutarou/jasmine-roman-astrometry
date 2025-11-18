@@ -6,7 +6,7 @@ tags: [simulation, imaging, Roman, WFI, I-Sim, GalSim]
 
 # Roman I-Sim &ndash; The Roman Image Simulator
 
-このページの内容は主に以下のソースを引用・参考にしています:
+このページの内容は主に以下のソースを引用・参考にしている:
 
 - [Roman I-Sim - The Roman Image Simulator](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-i-sim-the-roman-image-simulator)
 - [Overview of Roman I-Sim](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-i-sim-the-roman-image-simulator/overview-of-roman-i-sim)
@@ -16,7 +16,7 @@ tags: [simulation, imaging, Roman, WFI, I-Sim, GalSim]
 
 ## 概要
 
-Roman I-Sim は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) 専用に設計された GalSim ベースの高精度画像シミュレーターです. 公式校正参照ファイル (CRDS) と STPSF 点広がり関数モデルを使用して, 現実的な Level-1 (L1) および Level-2 (L2) WFI データプロダクトを ASDF 形式で生成します.
+Roman I-Sim は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) 専用に設計された GalSim ベースの高精度画像シミュレーターである. 公式校正参照ファイル (CRDS) と STPSF 点広がり関数モデルを使用して, 現実的な Level-1 (L1) および Level-2 (L2) WFI データプロダクトを ASDF 形式で生成する.
 
 ## 主要機能
 
@@ -62,7 +62,7 @@ export FFTW_DIR='/path/to/fftw/install/directory'
 echo 'export FFTW_DIR="/path/to/fftw/install/directory"' >> ~/.bashrc
 ```
 
-**重要**: FFTW_DIR が設定されていないと GalSim (および Roman I-Sim) は正常に動作しません.
+**重要**: FFTW_DIR が設定されていないと GalSim (および Roman I-Sim) は正常に動作しない.
 
 ### Step 3: Roman I-Sim のインストール
 ```bash
@@ -97,7 +97,7 @@ echo 'export CRDS_SERVER_URL="https://roman-crds.stsci.edu"' >> ~/.bashrc
 echo 'export CRDS_CONTEXT="roman_00XX.pmap"' >> ~/.bashrc
 ```
 
-**注意**: [Roman CRDS ウェブサイト](https://roman-crds.stsci.edu/) で最新のコンテキスト番号を確認してください.
+**注意**: [Roman CRDS ウェブサイト](https://roman-crds.stsci.edu/) で最新のコンテキスト番号を確認すること.
 
 ### インストール確認
 ```bash
@@ -461,62 +461,3 @@ ris.simulate_image_file(args, metadata, catalog, rng, persist)
 - **大規模カタログ**: 数百万ソースの ASCII カタログは読み込みが非常に遅い
 - **推奨フォーマット**: FITS バイナリテーブル使用を強く推奨
 - **L1/L2 同時出力**: 同一実行では不可, 別々に実行が必要
-
-## 他ツールとの使い分け
-
-### Roman I-Sim が最適な場合
-- **高精度データプロダクト**: Roman パイプライン処理前提の解析
-- **現実的ノイズ**: 検出器効果を含む詳細なノイズモデルが必要
-- **SCA サイズ視野**: 単一検出器での詳細シミュレーション
-- **ASDF データ**: Roman 公式データ形式での出力が必要
-
-### 他ツール推奨の場合
-- **大視野高速**: STIPS (複数検出器, 高速処理)
-- **露出時間計算**: Pandeia (小視野高精度計算)
-- **概念検証**: STIPS (プロトタイプ段階の検討)
-
-## バージョン情報と依存関係
-
-### 現在のバージョン
-- **Roman I-Sim**: 0.8.0 (2025年2月18日リリース)
-- **GalSim**: 最新版 (Rowe et al. 2015)
-- **Python**: 3.12 推奨
-
-### 主要依存関係
-```python
-# 主要 Python パッケージ
-dependencies = [
-    'galsim',           # シミュレーションエンジン
-    'astropy',          # カタログ I/O, 単位
-    'asdf',             # ASDF ファイル形式
-    'roman_datamodels', # Roman データモデル
-    'gwcs',             # 世界座標系
-    'rad',              # Roman 天文データ
-    'stpsf',            # PSF モデル
-    'crds'              # 校正参照データ
-]
-```
-
-## リソースとサポート
-
-### ドキュメント
-- **ReadTheDocs**: [romanisim.readthedocs.io](https://romanisim.readthedocs.io/en/latest/)
-- **GitHub リポジトリ**: [github.com/spacetelescope/romanisim](https://github.com/spacetelescope/romanisim)
-- **Roman CRDS**: [roman-crds.stsci.edu](https://roman-crds.stsci.edu/)
-
-### 関連ツール
-- **GalSim ドキュメント**: [galsim-developers.github.io](https://galsim-developers.github.io/GalSim/_build/html/)
-- **ASDF フォーマット**: [asdf.readthedocs.io](https://asdf.readthedocs.io/en/latest/)
-- **Roman データパイプライン**: [roman-pipeline.readthedocs.io](https://roman-pipeline.readthedocs.io/)
-
-### サポート
-- **Roman Help Desk**: [stsci.service-now.com/roman](https://stsci.service-now.com/roman)
-- **GitHub Issues**: Roman I-Sim GitHub リポジトリ
-- **STScI Roman Pages**: [stsci.edu/roman](https://www.stsci.edu/roman)
-
-### 参考文献
-- Rowe, B. T. P., et al. 2015, "GalSim: The modular galaxy image simulation toolkit", *Astronomy and Computing*, 10, 121
-
----
-
-**更新情報**: Roman I-Sim version 0.8.0 および Roman Technical Information に基づく (2025年10月現在)

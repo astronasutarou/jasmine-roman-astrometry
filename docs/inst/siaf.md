@@ -6,7 +6,7 @@ tags: [SIAF, coordinate, transformation, Roman, WFI, pysiaf, astrometry]
 
 # SIAF for Roman
 
-このページの内容は主に以下のソースを引用・参考にしています:
+このページの内容は主に以下のソースを引用・参考にしている:
 
 - [PySIAF for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/simulation-development-utilities/pysiaf-for-roman)
 - [PySIAF on readthedocs](https://pysiaf.readthedocs.io/en/latest/)
@@ -14,7 +14,7 @@ tags: [SIAF, coordinate, transformation, Roman, WFI, pysiaf, astrometry]
 
 ## 概要
 
-PySIAF は Roman 宇宙望遠鏡の Science Instrument Aperture File (SIAF) を読み込み, Wide Field Instrument (WFI) の検出器座標系, 宇宙船座標系, 天球座標系間の座標変換を実行する Python パッケージです. SIAF には WFI の幾何学的歪み補正モデルと検出器配置情報が含まれており, 精密なアストロメトリ解析に不可欠なツールです.
+PySIAF は Roman 宇宙望遠鏡の Science Instrument Aperture File (SIAF) を読み込み, Wide Field Instrument (WFI) の検出器座標系, 宇宙船座標系, 天球座標系間の座標変換を実行する Python パッケージである. SIAF には WFI の幾何学的歪み補正モデルと検出器配置情報が含まれており, 精密なアストロメトリ解析に不可欠なツールである.
 
 ## 主要機能
 
