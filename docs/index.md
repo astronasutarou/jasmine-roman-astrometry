@@ -2,7 +2,6 @@
 title: Home
 description: Welcome to the JASMINE-Roman astrometry project documentation
 tags: [astrometry, JASMINE, Roman, top page]
-icon: material/flare
 ---
 
 # JASMINE-Roman Astrometry

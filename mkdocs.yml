@@ -23,7 +23,7 @@ theme:
     - content.code.copy
 
 extra_css:
-  - css/config_local.css
+  - css/local.css
 extra_javascript:
   - js/config_mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -72,5 +72,9 @@ nav:
     - 'Wide Field Instrument (WFI)': inst/wfi.md
     - 'Instrument Aperture': inst/siaf.md
     - 'Data Format': inst/asdf.md
+  - 'Surveys':
+    - 'GBTDS': survey/gbtds.md
+    - 'HLWAS': survey/hlwas.md
+    - 'GPS': survey/gps.md
   - 'Follow-up observation':
     - 'Subaru Telescope': obs/subaru.md
