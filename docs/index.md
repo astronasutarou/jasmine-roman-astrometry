@@ -18,6 +18,11 @@ tags: [astrometry, JASMINE, Roman, top page]
 
 JASMINE (Japan Astrometry Satellite Mission for INfrared Exploration) では高精度の位置天文測定を実施するための技術開発を進めています. Roman 宇宙望遠鏡で得られる広視野赤外線天文画像をもちいて開発した技術の検証をおこない, 天の川銀河の理解を深めるためのサイエンスを展開することを目標としています.
 
+Roman 宇宙望遠鏡の情報は主に以下の公式リソースから取得しています:
+
+- [Roman Documentation (RDox)](https://roman-docs.stsci.edu/)
+- [Roman Space Telescope/NASA](https://roman.gsfc.nasa.gov/)
+
 ## Getting Started
 
 位置天文学の研究に関する詳細なドキュメントとリソースは順次追加予定です.
