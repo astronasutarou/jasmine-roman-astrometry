@@ -76,5 +76,7 @@ nav:
     - 'GBTDS': survey/gbtds.md
     - 'HLWAS': survey/hlwas.md
     - 'GPS': survey/gps.md
+  - 'Proposal':
+    - proposal/cycle1.md
   - 'Follow-up observation':
     - 'Subaru Telescope': obs/subaru.md
