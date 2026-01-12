@@ -1,6 +1,6 @@
 ---
 title: Cycle 1
-description:
+Short description: Overview of Nancy Grace Roman Telescope Cycle 1 proposal requirements, available datasets, and RRN computing resources.
 tags: [Roman, Proposal, Cycle 1]
 ---
 # Call for proposal -- Cycle 1
