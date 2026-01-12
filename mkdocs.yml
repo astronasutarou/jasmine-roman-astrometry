@@ -66,6 +66,8 @@ nav:
     - 'STIPS': tools/stips.md
     - 'Pandeia': tools/pandeia.md
     - 'I-Sim': tools/i-sim.md
+  - 'Roman Research Nexus':
+    - 'Overview': rrn/overview.md
   - 'Training':
     - 'RTS': training/index.md
   - 'Instruments':
