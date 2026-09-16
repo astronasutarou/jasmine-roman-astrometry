@@ -74,6 +74,7 @@ nav:
     - 'Wide Field Instrument (WFI)': inst/wfi.md
     - 'Instrument Aperture': inst/siaf.md
     - 'Data Format': inst/asdf.md
+    - 'Data Quality (DQ)': inst/data-quality.md
   - 'Surveys':
     - 'GBTDS': survey/gbtds.md
     - 'HLWAS': survey/hlwas.md
