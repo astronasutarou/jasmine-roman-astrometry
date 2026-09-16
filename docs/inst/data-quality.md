@@ -21,7 +21,7 @@ DQ 値が 0 でないという理由だけで, 画素を一律に除外しては
 
 ### 校正参照ファイル
 
-Bad Pixel Mask (BPM) 参照ファイルは, 装置特性評価で既知となった画素挙動を記録する. `romancal.dq_init. DQInitStep` が BPM の情報をデータモデルの DQ 配列へコピーし, 後続ステップがそこへフラグを追加する.
+Bad Pixel Mask (BPM) 参照ファイルは, 装置特性評価で既知となった画素挙動を記録する. `romancal.dq_init.DQInitStep` が BPM の情報をデータモデルの DQ 配列へコピーし, 後続ステップがそこへフラグを追加する.
 
 BPM には, dead, low quantum efficiency (low QE), resistor-capacitor (RC)/inverse RC, telegraph, open/adjacent-to-open などの画素クラスが含まれる. dark current や non-linearity に由来する情報は, 対応する別の参照ファイルから加わる.
 
