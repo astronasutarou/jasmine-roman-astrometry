@@ -147,6 +147,16 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 - **ガイド読み出し**: 3-4 秒間隔での連続読み出し
 - **データ圧縮**: 効率的データ伝送
 
+### ファインガイダンスのコミッショニング
+
+2026 年 9 月 15-21 日の軌道上試験では, WFI の 18 検出器それぞれに設定した小領域で別々のガイド星を高速観測し, その位置を約 4 Hz で姿勢制御系へ渡すファインガイダンス機能が確認された. IPAC の 2026 年 9 月 30 日の報告によれば, WFI 観測を想定した 30 分間で指向安定度は 1/100,000 度 (約 36 mas) より良好であった.
+
+この値はコミッショニング中の望遠鏡指向安定度であり, WFI データから得られる絶対・相対アストロメトリ精度を直接表すものではない. ガイダンス系の調整は継続中であり, 分光パターンを利用するガイド方式も同報告時点では今後の検証項目である.
+
+出典:
+
+- [NASA Checks Roman Guidance System, Takes First Coronagraph Observation](https://roman.ipac.caltech.edu/news/nasa-checks-roman-guidance-system-takes-first-coronagraph-observation) (Caltech/IPAC, 2026 年 9 月 30 日)
+
 ## WFI の科学的意義
 
 ### サーベイ能力
@@ -176,4 +186,4 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 
 ---
 
-**更新情報**: Roman Space Telescope Technical Information Repository v1.2 (2025年7月) に基づく
+**更新情報**: Roman Space Telescope Technical Information Repository v1.2 (2025 年 7 月) および Caltech/IPAC のファインガイダンス報告 (2026 年 9 月 30 日) に基づく
