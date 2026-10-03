@@ -91,7 +91,7 @@ flat, linearity, saturation, mask, photom の同時更新は測光値, DQ, 飽�
 
 各 RMAP は `GRISM` と `PRISM` を分け, `2020-01-01 00:00:00` を `USEAFTER` として対応する初期ファイルを選択する. CRDS は mapping の change level を `SEVERE` と記録している.
 
-`relflux` と `sflat` は in-flight commissioning data による更新が予定されている. したがって, これらを用いた現在の処理は波長依存の相対感度や画素スケールの分光 flat を実測値で補正したものではない. 分光データの定量解析では, 使用した context と各参照ファイルを確認し, dummy file の制約を明示する必要がある. 一方, `optmodel`, `absflux`, `specpsf` も ground model に基づく初期値であり, commissioning 後の更新可能性を考慮する.
+`relflux` と `sflat` は in-flight commissioning data による更新が予定されている. したがって, これらを用いた現在の処理は波長依存の相対感度や画素ごとの小スケール分光 flat を実測値で補正したものではない. 分光データの定量解析では, 使用した context と各参照ファイルを確認し, dummy file の制約を明示する必要がある. 一方, `optmodel`, `absflux`, `specpsf` も ground model に基づく初期値であり, commissioning 後の更新可能性を考慮する.
 
 ## 解析時の確認事項
 
