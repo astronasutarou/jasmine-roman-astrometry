@@ -1,7 +1,7 @@
 ---
 title: Roman CRDS と WFI 校正参照ファイル
 description: Roman WFI の校正参照ファイル選択と commissioning 後の context 更新の確認方法
-tags: [Roman, WFI, CRDS, calibration, reference file, BAM, distortion, astrometry, romancal]
+tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distortion, astrometry, romancal]
 ---
 
 # Roman CRDS と WFI 校正参照ファイル
@@ -9,7 +9,10 @@ tags: [Roman, WFI, CRDS, calibration, reference file, BAM, distortion, astrometr
 このページの内容は主に以下のソースを引用・参考にしている:
 
 - [CRDS for Reference Files](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (STScI, Publication: 2024-01-05, Latest Update: 2024-12-20)
-- [Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-09-25 閲覧)
+- [Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-04 閲覧)
+- [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) (STScI, Activation: 2026-10-02)
+- [`roman_wfi_optmodel_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`roman_wfi_absflux_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`roman_wfi_specpsf_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap) (STScI, Delivery/Activation: 2026-10-02)
+- [`roman_wfi_relflux_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`roman_wfi_sflat_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) (STScI, Delivery/Activation: 2026-10-02)
 - [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) (STScI, Activation: 2026-09-24)
 - [`roman_wfi_flat_0008.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap) (STScI, Delivery/Activation: 2026-09-24)
 - [`roman_wfi_area_0003.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap) (STScI, Delivery/Activation: 2026-09-24)
@@ -39,7 +42,7 @@ export CRDS_PATH=$HOME/data/crds_cache/
 特定の context で再処理する場合は `CRDS_CONTEXT` を明示する.
 
 ```bash
-export CRDS_CONTEXT=roman_0072.pmap
+export CRDS_CONTEXT=roman_0073.pmap
 ```
 
 `latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, release 1.0.2 (26Q3_B22.3) に `roman_0065.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない.
@@ -74,11 +77,28 @@ distortion 参照ファイルは detector 座標から sky coordinates への WC
 
 flat, linearity, saturation, mask, photom の同時更新は測光値, DQ, 飽和判定にも影響し得る. context 間の結果差を単一の参照ファイルへ帰属させる前に, PMAP 全体と使用された参照ファイルを確認する.
 
+## 2026 年 10 月 2 日の分光参照ファイル追加
+
+`roman_0073.pmap` は 2026-10-02 に activation され, `roman_0072.pmap` に代わる `latest` context となった. この context は WFI spectral mode (WSM) の grism と prism について, 次の 5 種別を各 1 ファイル, 合計 10 個の初期参照ファイルとして追加する.
+
+| 種別 | 内容 | 公式に示された状態・由来 |
+|---|---|---|
+| `optmodel` | direct image と dispersed image の対応, trace, wavelength solution を含む optical model | TVAC ground testing で更新された WFI as-built design model から導出 |
+| `absflux` | absolute flux calibration | TVAC ground testing で更新された WFI as-built design model から導出 |
+| `specpsf` | spectral point-spread function (PSF) | TVAC ground testing で更新された WFI as-built design model から導出 |
+| `relflux` | relative flux calibration | unity を設定した dummy file |
+| `sflat` | pixel-level small-scale flat-field | unity を設定した dummy file |
+
+各 RMAP は `GRISM` と `PRISM` を分け, `2020-01-01 00:00:00` を `USEAFTER` として対応する初期ファイルを選択する. CRDS は mapping の change level を `SEVERE` と記録している.
+
+`relflux` と `sflat` は in-flight commissioning data による更新が予定されている. したがって, これらを用いた現在の処理は波長依存の相対感度や画素スケールの分光 flat を実測値で補正したものではない. 分光データの定量解析では, 使用した context と各参照ファイルを確認し, dummy file の制約を明示する必要がある. 一方, `optmodel`, `absflux`, `specpsf` も ground model に基づく初期値であり, commissioning 後の更新可能性を考慮する.
+
 ## 解析時の確認事項
 
 - archive product では ASDF metadata と処理 log から CRDS context と参照ファイル名を確認する.
 - ローカル再処理では `romancal` version, `CRDS_CONTEXT`, parameter file, 実行時刻を記録する.
 - 異なる context の結果を比較する場合は, PMAP 全体の差分を確認し, BAM や distortion だけが異なると仮定しない.
-- `2026-09-01` 以降の exposure を再処理する場合は, `roman_0067.pmap` 以前と `roman_0072.pmap` で選択される detector calibration files が異なることを確認する.
+- `2026-09-01` 以降の exposure を再処理する場合は, `roman_0067.pmap` 以前と `roman_0072.pmap` 以降で選択される detector calibration files が異なることを確認する.
+- WFI spectral mode の処理では, `roman_0073.pmap` が選択する `relflux` と `sflat` が commissioning data に基づく更新前の dummy file であることを確認する.
 - `latest` の変更後も, 過去の data release や operational build は指定された検証済み context を用いる場合がある.
 - BAM や distortion 更新の astrometry への影響を報告する場合は, CRDS の説明と実データで測定した結果を区別する.
