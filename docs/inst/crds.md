@@ -9,7 +9,9 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 このページの内容は主に以下のソースを引用・参考にしている:
 
 - [CRDS for Reference Files](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (STScI, Publication: 2024-01-05, Latest Update: 2024-12-20)
-- [Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-04 閲覧)
+- [Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-07 閲覧)
+- [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) (STScI, Delivery: 2026-10-05)
+- [`roman_wfi_bam_0006.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) (STScI, Delivery/Activation: 2026-10-05)
 - [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) (STScI, Activation: 2026-10-02)
 - [`roman_wfi_optmodel_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`roman_wfi_absflux_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`roman_wfi_specpsf_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap) (STScI, Delivery/Activation: 2026-10-02)
 - [`roman_wfi_relflux_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`roman_wfi_sflat_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) (STScI, Delivery/Activation: 2026-10-02)
@@ -32,7 +34,7 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 
 ## 現行の校正状況
 
-2026-10-04 時点の `latest` context は, 2026-10-02 に activation された `roman_0073.pmap` である. この context は, `roman_0072.pmap` で導入された imaging および detector calibration files を引き継ぎ, WFI spectral mode (WSM) の grism と prism に初期分光参照ファイルを追加している.
+2026-10-07 時点の `latest` context は, 2026-10-05 に delivery された `roman_0074.pmap` である. この context は, `roman_0072.pmap` で導入された imaging および detector calibration files と, `roman_0073.pmap` で追加された WFI spectral mode (WSM) の初期分光参照ファイルを引き継ぎ, Boresight Alignment Matrix (BAM) を更新している.
 
 ### Imaging および detector calibration
 
@@ -66,9 +68,11 @@ distortion 参照ファイルは detector 座標から sky coordinates への WC
 
 ### Boresight alignment
 
-現行 context の `roman_wfi_bam_0005.rmap` は, `2026-09-01 00:00:00` 以降の exposure に `roman_wfi_bam_0004.asdf` を選択する. この Boresight Alignment Matrix (BAM) は, 2026-09-18 から 2026-09-20 の CAR-86.4 および CAR-86.7 恒星観測から導出された.
+現行 context の `roman_wfi_bam_0006.rmap` は, `2026-10-04 01:28:00` 以降の exposure に `roman_wfi_bam_0005.asdf` を選択する. この BAM は Roman observatory boresight と Fine Guidance System (FGS) の alignment matrix の quaternion を, commissioning で得た軌道上値に更新したものであり, 最初の Payload Focus and Alignment Campaign (PFAC) 後の観測に適用される. RMAP の change level は `SEVERE` である.
 
-BAM は WFI と observatory boresight の相対 alignment を表す. CRDS では BAM と detector distortion が別の参照ファイル種別として管理されているため, BAM 更新を detector distortion model の更新と同一視してはならない. 公式 delivery note は astrometric shift の大きさを示していない.
+それ以前については, `2026-09-01 00:00:00` から `2026-10-04 01:28:00` より前の exposure に `roman_wfi_bam_0004.asdf` が選択される. この BAM は, 2026-09-18 から 2026-09-20 の CAR-86.4 および CAR-86.7 恒星観測から導出された.
+
+BAM は WFI, observatory boresight, FGS の相対 alignment に関係する. CRDS では BAM と detector distortion が別の参照ファイル種別として管理されているため, BAM 更新を detector distortion model の更新と同一視してはならない. 公式 delivery note は quaternion の数値差や astrometric shift の大きさを示していない.
 
 ## ローカル環境の設定
 
@@ -82,7 +86,7 @@ export CRDS_PATH=$HOME/data/crds_cache/
 特定の context で再処理する場合は `CRDS_CONTEXT` を明示する.
 
 ```bash
-export CRDS_CONTEXT=roman_0073.pmap
+export CRDS_CONTEXT=roman_0074.pmap
 ```
 
 `latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, release 1.0.2 (26Q3_B22.3) に `roman_0065.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない.
@@ -100,6 +104,7 @@ export CRDS_CONTEXT=roman_0073.pmap
 
 | Context | Activation | 主な変更 |
 |---|---|---|
+| `roman_0074.pmap` | 2026-10-05 | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 |
 | `roman_0073.pmap` | 2026-10-02 | grism/prism 用の初期 `optmodel`, `absflux`, `relflux`, `sflat`, `specpsf` を追加 |
 | `roman_0072.pmap` | 2026-09-24 | flat, saturation, mask, linearity, inverse linearity, photom, pixel area, distortion を更新 |
 | `roman_0067.pmap` | 2026-09-21 | CAR-86.4/86.7 の恒星観測に基づく `roman_wfi_bam_0004.asdf` を追加 |
