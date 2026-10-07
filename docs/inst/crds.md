@@ -9,19 +9,6 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 このページの内容は主に以下のソースを引用・参考にしている:
 
 - [CRDS for Reference Files](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (STScI, Publication: 2024-01-05, Latest Update: 2024-12-20)
-- [Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-07 閲覧)
-- [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) (STScI, Delivery: 2026-10-05)
-- [`roman_wfi_bam_0006.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) (STScI, Delivery/Activation: 2026-10-05)
-- [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) (STScI, Activation: 2026-10-02)
-- [`roman_wfi_optmodel_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`roman_wfi_absflux_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`roman_wfi_specpsf_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap) (STScI, Delivery/Activation: 2026-10-02)
-- [`roman_wfi_relflux_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`roman_wfi_sflat_0002.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) (STScI, Delivery/Activation: 2026-10-02)
-- [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) (STScI, Activation: 2026-09-24)
-- [`roman_wfi_flat_0008.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap) (STScI, Delivery/Activation: 2026-09-24)
-- [`roman_wfi_area_0003.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap) (STScI, Delivery/Activation: 2026-09-24)
-- [`roman_wfi_distortion_0003.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap) (STScI, Delivery/Activation: 2026-09-24)
-- [`roman_wfi_mask_0005.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [`roman_wfi_photom_0006.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap) (STScI, Delivery/Activation: 2026-09-24)
-- [`roman_wfi_linearity_0006.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [`roman_wfi_inverselinearity_0006.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [`roman_wfi_saturation_0004.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) (STScI, Delivery/Activation: 2026-09-24)
-- [`roman_wfi_bam_0005.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0005.rmap) (STScI, Delivery/Activation: 2026-09-21)
 - [`romancal` DMS Operational Build Versions](https://github.com/spacetelescope/romancal#dms-operational-build-versions) (STScI)
 
 ## 概要
@@ -112,3 +99,11 @@ export CRDS_CONTEXT=roman_0074.pmap
 | `roman_0065.pmap` | 2026-09-16 | commissioning で測定した軌道上 BAM を初めて追加 |
 
 注: `roman_0074.pmap` は delivery 日付のみが公開されており, source には activation date は明記されていない.
+
+## CRDS mapping 参照情報
+
+- [Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-07 閲覧)
+- `roman_0074.pmap`: [context](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) (Delivery: 2026-10-05), [`roman_wfi_bam_0006.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) (Delivery/Activation: 2026-10-05)
+- `roman_0073.pmap`: [context](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) (Activation: 2026-10-02), [`optmodel`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`absflux`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`specpsf`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap), [`relflux`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`sflat`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) (Delivery/Activation: 2026-10-02)
+- `roman_0072.pmap`: [context](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) (Activation: 2026-09-24), [`flat`](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap), [`area`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap), [`distortion`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap), [`mask`](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [`photom`](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap), [`linearity`](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [`inverselinearity`](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [`saturation`](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) (Delivery/Activation: 2026-09-24)
+- `roman_0067.pmap`: [context](https://roman-crds.stsci.edu/context_table/roman_0067.pmap) (Activation: 2026-09-21), [`roman_wfi_bam_0005.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0005.rmap) (Delivery/Activation: 2026-09-21)
