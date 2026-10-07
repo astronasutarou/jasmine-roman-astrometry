@@ -104,7 +104,7 @@ export CRDS_CONTEXT=roman_0074.pmap
 
 | Context | Activation | 主な変更 |
 |---|---|---|
-| `roman_0074.pmap` | 2026-10-05 | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 |
+| `roman_0074.pmap` | 2026-10-05 (delivery; activation date not stated in source) | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 |
 | `roman_0073.pmap` | 2026-10-02 | grism/prism 用の初期 `optmodel`, `absflux`, `relflux`, `sflat`, `specpsf` を追加 |
 | `roman_0072.pmap` | 2026-09-24 | flat, saturation, mask, linearity, inverse linearity, photom, pixel area, distortion を更新 |
 | `roman_0067.pmap` | 2026-09-21 | CAR-86.4/86.7 の恒星観測に基づく `roman_wfi_bam_0004.asdf` を追加 |
