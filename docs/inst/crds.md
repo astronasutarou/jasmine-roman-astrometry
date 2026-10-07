@@ -102,7 +102,7 @@ export CRDS_CONTEXT=roman_0074.pmap
 
 ## Context 更新履歴
 
-| Context | 日付 | 主な変更 |
+| Context | Activation | 主な変更 |
 |---|---|---|
 | `roman_0074.pmap` | 2026-10-05 (delivery) | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 |
 | `roman_0073.pmap` | 2026-10-02 | grism/prism 用の初期 `optmodel`, `absflux`, `relflux`, `sflat`, `specpsf` を追加 |
