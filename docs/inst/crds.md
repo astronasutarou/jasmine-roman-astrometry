@@ -21,7 +21,7 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 
 ## 現行の校正状況
 
-2026-10-07 時点の `latest` context は, 2026-10-05 に delivery された `roman_0074.pmap` である. この context は, `roman_0072.pmap` で導入された imaging および detector calibration files と, `roman_0073.pmap` で追加された WFI spectral mode (WSM) の初期分光参照ファイルを引き継ぎ, Boresight Alignment Matrix (BAM) を更新している.
+2026-10-10 時点の `latest` context は, 2026-10-08 に delivery および activation された `roman_0075.pmap` である. この context は, `roman_0074.pmap` までの imaging, detector, spectral calibration files と Boresight Alignment Matrix (BAM) を引き継ぎ, detector distortion と pixel area map を更新している.
 
 ### Imaging および detector calibration
 
@@ -31,11 +31,17 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 |---|---|---|
 | flat | 144 files: imaging の 18 detectors × 8 filters | TVAC および SCIPA ground testing |
 | saturation, mask, linearity, inverse linearity, photom | 各 18 files: imaging および spectral modes | TVAC および SCIPA ground testing |
-| pixel area, distortion | 各 18 files: imaging および spectral modes | commissioning activity の更新 |
+| pixel area, distortion | 各 18 files: imaging および spectral modes | CAR-86.11 の軌道上観測に基づく SIAF `PRDOPSRSOC-012` |
 
-各 RMAP は `2026-09-01 00:00:00` を `USEAFTER` とする detector 別ファイルを選択し, change level は `SEVERE` と記録されている. flat は imaging filter ごとに選択され, `GRISM`, `PRISM`, `DARK` には適用されない.
+flat, saturation, mask, linearity, inverse linearity, photom は `2026-09-01 00:00:00` を `USEAFTER` とする detector 別ファイルを引き続き選択する. flat は imaging filter ごとに選択され, `GRISM`, `PRISM`, `DARK` には適用されない.
 
-distortion 参照ファイルは detector 座標から sky coordinates への WCS model に関係し, pixel area map は detector 上の画素面積変化を扱う. flat, linearity, saturation, mask, photom の変更は測光値, DQ, 飽和判定にも影響し得る. 公式 delivery note は各モデルの差分や astrometric shift を定量化していないため, 数値的な影響は実データで検証する.
+### 軌道上 SIAF に基づく distortion と pixel area
+
+`roman_0075.pmap` の `roman_wfi_distortion_0004.rmap` と `roman_wfi_area_0004.rmap` は, 18 detectors すべてについて `2026-10-04 01:28:00` を `USEAFTER` とする新しい参照ファイルを選択する. 両 RMAP の change level は `SEVERE` である.
+
+参照ファイルは, 最初の Payload Focus and Alignment Campaign (PFAC 1) 後に実施された commissioning activity CAR-86.11 の軌道上観測に基づく Science Instrument Aperture File (SIAF) `PRDOPSRSOC-012` を用いて作成された. CRDS の delivery note は pixel scale の変更に加え, WFI-CEN aperture location に約 23 pixels の shift が見つかったと記録している.
+
+この約 23 pixels は WFI-CEN aperture の参照位置の shift であり, 個々の天体の astrometric residual や sky coordinates 上の一様な shift を直接示す値ではない. CRDS は detector ごとの係数差や天球上の residual を公開していない. distortion は detector 座標から sky coordinates への WCS model に, pixel area map は歪みのある detector frame での測光補正に関係するため, context をまたいで位置・測光を比較する場合は実データで影響を評価する.
 
 ### Spectral calibration
 
@@ -73,7 +79,7 @@ export CRDS_PATH=$HOME/data/crds_cache/
 特定の context で再処理する場合は `CRDS_CONTEXT` を明示する.
 
 ```bash
-export CRDS_CONTEXT=roman_0074.pmap
+export CRDS_CONTEXT=roman_0075.pmap
 ```
 
 `latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, release 1.0.2 (26Q3_B22.3) に `roman_0065.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない.
@@ -91,6 +97,7 @@ export CRDS_CONTEXT=roman_0074.pmap
 
 | Context | Activation | 主な変更 |
 |---|---|---|
+| `roman_0075.pmap` | 2026-10-08 | CAR-86.11 に基づく SIAF `PRDOPSRSOC-012` を用いて distortion と pixel area map を更新 |
 | `roman_0074.pmap` | 2026-10-05 (delivery) | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 |
 | `roman_0073.pmap` | 2026-10-02 | grism/prism 用の初期 `optmodel`, `absflux`, `relflux`, `sflat`, `specpsf` を追加 |
 | `roman_0072.pmap` | 2026-09-24 | flat, saturation, mask, linearity, inverse linearity, photom, pixel area, distortion を更新 |
@@ -98,14 +105,15 @@ export CRDS_CONTEXT=roman_0074.pmap
 | `roman_0066.pmap` | 2026-09-19 | CAR-86.4 の恒星観測に基づく BAM を追加 |
 | `roman_0065.pmap` | 2026-09-16 | commissioning で測定した軌道上 BAM を初めて追加 |
 
-注: `roman_0074.pmap` は delivery 日付のみが公開されており, source には activation date は明記されていない.
+注: `roman_0074.pmap` は context history に delivery 日付のみが表示されるため, 表では delivery 日付を示した.
 
 ## CRDS mapping 参照情報
 
-[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-07 閲覧) の context と RMAP を次にまとめる.
+[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-10 閲覧) の context と RMAP を次にまとめる.
 
 | Context | 日付 | 参照した RMAP |
 |---|---|---|
+| [`roman_0075.pmap`](https://roman-crds.stsci.edu/context_table/roman_0075.pmap) | Delivery/Activation: 2026-10-08 | [`area_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0004.rmap), [`distortion_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0004.rmap) |
 | [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) | Delivery: 2026-10-05 | [`bam_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) |
 | [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) | Activation: 2026-10-02 | [`optmodel_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`absflux_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`specpsf_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap), [`relflux_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`sflat_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) |
 | [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) | Activation: 2026-09-24 | [`flat_0008`](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap), [`area_0003`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap), [`distortion_0003`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap), [`mask_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [`photom_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap), [`linearity_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [`inverselinearity_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [`saturation_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) |
