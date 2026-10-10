@@ -31,7 +31,6 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 |---|---|---|
 | flat | 144 files: imaging の 18 detectors × 8 filters | TVAC および SCIPA ground testing |
 | saturation, mask, linearity, inverse linearity, photom | 各 18 files: imaging および spectral modes | TVAC および SCIPA ground testing |
-| pixel area, distortion | 各 18 files: imaging および spectral modes | CAR-86.11 の軌道上観測に基づく SIAF `PRDOPSRSOC-012` |
 
 flat, saturation, mask, linearity, inverse linearity, photom は `2026-09-01 00:00:00` を `USEAFTER` とする detector 別ファイルを引き続き選択する. flat は imaging filter ごとに選択され, `GRISM`, `PRISM`, `DARK` には適用されない.
 
