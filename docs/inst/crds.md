@@ -60,7 +60,7 @@ flat, saturation, mask, linearity, inverse linearity, photom は `2026-09-01 00:
 
 ### Boresight alignment
 
-現行 context の `roman_wfi_bam_0007.rmap` は, `2026-10-09 03:37:00` 以降の exposure に `roman_wfi_bam_0006.asdf` を選択する. この BAM は, CAR-50 PFAC の反復後に実施された CAR-86.15 の軌道上観測に基づく SIAF `PRDOPSRSOC-013` の distortion terms から導出された. RMAP の change level は `SEVERE` である.
+現行 context の `roman_wfi_bam_0007.rmap` は, `2026-10-09 03:37:00` 以降の exposure に `roman_wfi_bam_0006.asdf` を選択する. この BAM は, CAR-50 PFAC の反復後に実施された CAR-86.15 の軌道上観測に基づく SIAF `PRDOPSRSOC-013` から導出された. RMAP の change level は `SEVERE` である.
 
 `2026-10-04 01:28:00` から `2026-10-09 03:37:00` より前の exposure には `roman_wfi_bam_0005.asdf` が選択される. これは最初の PFAC 後の commissioning で得た軌道上 quaternion 値を反映した BAM である. さらに, `2026-09-01 00:00:00` から `2026-10-04 01:28:00` より前の exposure には, 2026-09-18 から 2026-09-20 の CAR-86.4 および CAR-86.7 恒星観測から導出された `roman_wfi_bam_0004.asdf` が選択される.
 
