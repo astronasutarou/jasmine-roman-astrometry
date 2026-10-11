@@ -94,30 +94,17 @@ export CRDS_CONTEXT=roman_0076.pmap
 
 ## Context 更新履歴
 
-| Context | Activation | 主な変更 |
-|---|---|---|
-| `roman_0076.pmap` | 2026-10-09 | CAR-86.15 に基づく SIAF `PRDOPSRSOC-013` を用いて BAM, distortion, pixel area map を更新 |
-| `roman_0075.pmap` | 2026-10-08 | CAR-86.11 に基づく SIAF `PRDOPSRSOC-012` を用いて distortion と pixel area map を更新 |
-| `roman_0074.pmap` | 2026-10-05 (delivery) | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 |
-| `roman_0073.pmap` | 2026-10-02 | grism/prism 用の初期 `optmodel`, `absflux`, `relflux`, `sflat`, `specpsf` を追加 |
-| `roman_0072.pmap` | 2026-09-24 | flat, saturation, mask, linearity, inverse linearity, photom, pixel area, distortion を更新 |
-| `roman_0067.pmap` | 2026-09-21 | CAR-86.4/86.7 の恒星観測に基づく `roman_wfi_bam_0004.asdf` を追加 |
-| `roman_0066.pmap` | 2026-09-19 | CAR-86.4 の恒星観測に基づく BAM を追加 |
-| `roman_0065.pmap` | 2026-09-16 | commissioning で測定した軌道上 BAM を初めて追加 |
+[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-11 閲覧) の context 更新内容と参照した RMAP を次にまとめる.
+
+| Context | 日付 | 主な変更 | 参照した RMAP |
+|---|---|---|---|
+| [`roman_0076.pmap`](https://roman-crds.stsci.edu/context_table/roman_0076.pmap) | Delivery/Activation: 2026-10-09 | CAR-86.15 に基づく SIAF `PRDOPSRSOC-013` を用いて BAM, distortion, pixel area map を更新 | [`bam_0007`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0007.rmap), [`area_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0005.rmap), [`distortion_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0005.rmap) |
+| [`roman_0075.pmap`](https://roman-crds.stsci.edu/context_table/roman_0075.pmap) | Delivery/Activation: 2026-10-08 | CAR-86.11 に基づく SIAF `PRDOPSRSOC-012` を用いて distortion と pixel area map を更新 | [`area_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0004.rmap), [`distortion_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0004.rmap) |
+| [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) | Delivery: 2026-10-05 | 最初の PFAC 後に適用する軌道上 quaternion 値で BAM を更新 | [`bam_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) |
+| [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) | Activation: 2026-10-02 | grism/prism 用の初期 `optmodel`, `absflux`, `relflux`, `sflat`, `specpsf` を追加 | [`optmodel_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`absflux_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`specpsf_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap), [`relflux_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`sflat_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) |
+| [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) | Activation: 2026-09-24 | flat, saturation, mask, linearity, inverse linearity, photom, pixel area, distortion を更新 | [`flat_0008`](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap), [`area_0003`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap), [`distortion_0003`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap), [`mask_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [`photom_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap), [`linearity_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [`inverselinearity_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [`saturation_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) |
+| [`roman_0067.pmap`](https://roman-crds.stsci.edu/context_table/roman_0067.pmap) | Activation: 2026-09-21 | CAR-86.4/86.7 の恒星観測に基づく `roman_wfi_bam_0004.asdf` を追加 | [`bam_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0005.rmap) |
+| [`roman_0066.pmap`](https://roman-crds.stsci.edu/context_table/roman_0066.pmap) | Activation: 2026-09-19 | CAR-86.4 の恒星観測に基づく BAM を追加 | BAM |
+| [`roman_0065.pmap`](https://roman-crds.stsci.edu/context_table/roman_0065.pmap) | Activation: 2026-09-16 | commissioning で測定した軌道上 BAM を初めて追加 | BAM |
 
 注: `roman_0074.pmap` は context history に delivery 日付のみが表示されるため, 表では delivery 日付を示した.
-
-## CRDS mapping 参照情報
-
-[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-11 閲覧) の context と RMAP を次にまとめる.
-
-| Context | 日付 | 参照した RMAP |
-|---|---|---|
-| [`roman_0076.pmap`](https://roman-crds.stsci.edu/context_table/roman_0076.pmap) | Delivery/Activation: 2026-10-09 | [`bam_0007`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0007.rmap), [`area_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0005.rmap), [`distortion_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0005.rmap) |
-| [`roman_0075.pmap`](https://roman-crds.stsci.edu/context_table/roman_0075.pmap) | Delivery/Activation: 2026-10-08 | [`area_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0004.rmap), [`distortion_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0004.rmap) |
-| [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) | Delivery: 2026-10-05 | [`bam_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) |
-| [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) | Activation: 2026-10-02 | [`optmodel_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [`absflux_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [`specpsf_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap), [`relflux_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [`sflat_0002`](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) |
-| [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) | Activation: 2026-09-24 | [`flat_0008`](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap), [`area_0003`](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap), [`distortion_0003`](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap), [`mask_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [`photom_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap), [`linearity_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [`inverselinearity_0006`](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [`saturation_0004`](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) |
-| [`roman_0067.pmap`](https://roman-crds.stsci.edu/context_table/roman_0067.pmap) | Activation: 2026-09-21 | [`bam_0005`](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0005.rmap) |
-| [`roman_0066.pmap`](https://roman-crds.stsci.edu/context_table/roman_0066.pmap) | Activation: 2026-09-19 | BAM |
-| [`roman_0065.pmap`](https://roman-crds.stsci.edu/context_table/roman_0065.pmap) | Activation: 2026-09-16 | BAM |
