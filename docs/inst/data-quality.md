@@ -10,6 +10,8 @@ tags: [Roman, WFI, data quality, DQ, romancal, CRDS, calibration]
 
 - [Data Quality Information](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/data-quality-information) (STScI, Publication: 2026-07-16)
 - [Roman data quality flag definitions](https://github.com/spacetelescope/roman_datamodels/blob/main/src/roman_datamodels/dqflags.py) (`roman_datamodels`, STScI)
+- [RAD 1.2.0 release](https://github.com/spacetelescope/rad/releases/tag/1.2.0) (STScI, 2026-10-15)
+- [roman_datamodels 1.2.0 release](https://github.com/spacetelescope/roman_datamodels/releases/tag/1.2.0) (STScI, 2026-10-15)
 
 ## 概要
 
@@ -42,6 +44,14 @@ BPM には, dead, low quantum efficiency (low QE), resistor-capacitor (RC)/inver
 `GW_AFFECTED_DATA`, `AD_FLOOR`, `OUTLIER` などは `DO_NOT_USE` と同時に設定される場合がある. この対象は軌道上での知見に応じて変わり得る.
 
 ## データ製品ごとの格納場所
+
+### `dq2` と `pixeldq2`
+
+2026 年 10 月 15 日公開の RAD 1.2.0 schema では, WFI image model の `dq2` と ramp model の `pixeldq2` が必須フィールドになった. いずれも従来の画素単位 DQ 配列と同じ 2 次元形状を持つ `uint32` 配列であり, 追加の pixel-level DQ flags を格納する.
+
+`dq2` / `pixeldq2` は従来の `dq` / `pixeldq` とは別の配列である. 新しい schema の製品を解析する場合は, 一方だけを調べて全フラグを確認したとみなさない. 一方, 1.2.0 より前の schema で作成された既存製品には第 2 配列がない可能性があるため, model/schema version とフィールドの有無を確認して処理を分岐する.
+
+RAD と `roman_datamodels` の release はデータ構造の公開を示すが, すべての archive products や operational pipeline builds が直ちに第 2 配列へ非ゼロのフラグを格納することを意味しない. 実データでは pipeline version, product schema, DQ definitions を併せて確認する.
 
 ### Level 2
 

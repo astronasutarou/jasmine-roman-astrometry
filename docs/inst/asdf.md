@@ -13,6 +13,8 @@ tags: [Roman, WFI, ASDF, datamodels, format]
 - [ASDF Python API](https://www.asdf-format.org/projects/asdf/en/latest/asdf/overview.html)
 - [ASDF: A new data format for astronomy](https://www.sciencedirect.com/science/article/pii/S2213133715000645)
 - [Roman datamodels](https://roman-datamodels.readthedocs.io/en/latest/)
+- [roman_datamodels 1.2.0 release](https://github.com/spacetelescope/roman_datamodels/releases/tag/1.2.0) (STScI, 2026-10-15)
+- [RAD 1.2.0 release](https://github.com/spacetelescope/rad/releases/tag/1.2.0) (STScI, 2026-10-15)
 
 
 Advanced Scientific Data Format (ASDF) は, Nancy Grace Roman Space Telescope の主要なデータフォーマットとして採用された次世代の天文データ形式である. ASDF は FITS の後継として設計され, 階層構造のメタデータ, 効率的なバイナリデータ圧縮, スキーマ検証などの先進的な機能を提供する.
@@ -51,6 +53,10 @@ Roman 望遠鏡のキャリブレーションパイプライン (`romancal`) は
 ### Roman Datamodels パッケージ
 
 `roman_datamodels` パッケージは Roman WFI ASDF ファイルの読み書き機能を提供し, ドット記法によるファイル内容アクセスなどの便利な機能を追加する.
+
+2026 年 10 月 15 日公開の `roman_datamodels` 1.2.0 は, L2 images 上の入力 catalog positions で測定した PSF photometry と aperture photometry を格納する `TimeDomainSourceCatalogModel` と, Boresight Alignment Matrix (BAM) reference file model を追加した. 対応する RAD 1.2.0 は time-domain source catalog schema, WFI image/ramp の第 2 DQ 配列, visit schema の Alignment Compensation Mechanism (ACM) move metadata を追加している.
+
+これらは ASDF data model と schema の公開を示す. 特定の archive product が生成済みであることや, operational `romancal` build がすべてのフィールドを使用していることを意味しないため, 解析時には product schema, pipeline release, RDox の data-product specification を併せて確認する.
 
 ### スキーマ検証
 
