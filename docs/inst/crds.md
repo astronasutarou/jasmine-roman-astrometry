@@ -10,6 +10,7 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 
 - [CRDS for Reference Files](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (STScI, Publication: 2024-01-05, Latest Update: 2024-12-20)
 - [`romancal` DMS Operational Build Versions](https://github.com/spacetelescope/romancal#dms-operational-build-versions) (STScI)
+- [`romancal` 1.0.3 release](https://github.com/spacetelescope/romancal/releases/tag/1.0.3) (STScI, 2026-10-19)
 
 ## 概要
 
@@ -81,7 +82,13 @@ export CRDS_PATH=$HOME/data/crds_cache/
 export CRDS_CONTEXT=roman_0077.pmap
 ```
 
-`latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, release 1.0.2 (26Q3_B22.3) に `roman_0065.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない.
+`latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, 2026-10-19 公開の release 1.0.3 (26Q3_B22.6) に `roman_0077.pmap`, release 1.0.2 (26Q3_B22.3) に `roman_0065.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない. `1.0.3` は Build 22 系の patch release であり, Build 23 の `1.1.0` より新しい運用系列を意味しない.
+
+### WFI18 first-read transient の変更
+
+`romancal` 1.0.3 は, WFI18 の最初の resultant に現れる transient signal を補正する `wfi18_transient` step を更新した. 4 resultants の exposure では, 従来の affected rows の masking への fallback に代えて, 最後の 2 resultants から弱く照射された pixels を選び, transient を fit して減算する. さらに, 弱照射 pixels の選択基準が各 column の中央値と比較されていた実装誤りを修正し, 意図どおり各 row の中央値と比較するようになった. この処理は WFI imaging, prism, grism の WFI18 data に適用される.
+
+この変更は CRDS reference file の追加・差し替えではなく, 同じ `roman_0077.pmap` に対応する pipeline code の変更である. WFI18 の結果を比較・再現する場合は, CRDS context だけでなく `romancal` version も確認する.
 
 ## 解析時の確認事項
 
