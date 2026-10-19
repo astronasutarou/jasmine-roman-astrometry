@@ -22,7 +22,7 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 
 ## 現行の校正状況
 
-2026-10-14 時点の `latest` context は, 2026-10-13 に delivery および activation された `roman_0077.pmap` である. この context は, `roman_0076.pmap` までの imaging, detector, spectral calibration files を引き継ぎ, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を更新している.
+2026-10-20 時点の `latest` context は, 2026-10-13 に delivery および activation された `roman_0077.pmap` である. この context は, `roman_0076.pmap` までの imaging, detector, spectral calibration files を引き継ぎ, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を更新している.
 
 ### Imaging および detector calibration
 
@@ -101,7 +101,7 @@ export CRDS_CONTEXT=roman_0077.pmap
 
 ## Context 更新履歴
 
-[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-14 閲覧) の主な context 更新を次にまとめる. RMAP のリンクは, 各 context で更新された参照ファイル種別を示す.
+[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-20 閲覧) の主な context 更新を次にまとめる. RMAP のリンクは, 各 context で更新された参照ファイル種別を示す.
 
 | Context | 日付 | 更新内容 |
 |---|---|---|
