@@ -82,7 +82,7 @@ export CRDS_PATH=$HOME/data/crds_cache/
 export CRDS_CONTEXT=roman_0077.pmap
 ```
 
-`latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, 2026-10-19 公開の release 1.0.3 (26Q3_B22.6) に `roman_0077.pmap`, release 1.0.2 (26Q3_B22.3) に `roman_0065.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない. `1.0.3` は Build 22 系の patch release であり, Build 23 の `1.1.0` より新しい運用系列を意味しない.
+`latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, 2026-10-19 公開の release 1.0.3 (26Q3_B22.6) に `roman_0077.pmap`, release 1.0.2 (26Q3_B22.3) に `roman_0055.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない. `1.0.3` は Build 22 系の patch release であり, Build 23 の `1.1.0` より新しい運用系列を意味しない.
 
 ### WFI18 first-read transient の変更
 
