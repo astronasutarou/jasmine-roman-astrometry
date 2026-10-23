@@ -9,6 +9,7 @@ tags: [Roman Research Nexus, RRN]
 このページの内容は主に以下のソースを引用・参考にしている:
 
 - [Roman Research Nexus - STScI](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus)
+- [Roman Notebooks 2026.2.3 release notes (2026-10-23)](https://github.com/spacetelescope/roman_notebooks/releases/tag/2026.2.3)
 
 Roman Research Nexus (RRN) は, Space Telescope Science Institute (STScI) がミッションパートナーと協力して開発したクラウド型データ解析基盤であり, Roman ミッション運用期と同様のソフトウェアスタック・シミュレーション環境・共有計算資源をコミュニティに提供する. 2025 年 12 月中旬から Early Access フェーズに入り, 模擬データを用いたワークフロー開発と協調作業の準備が行えるようになっている.
 
@@ -32,6 +33,12 @@ RRN は Roman のキャリブレーションパイプライン, 解析ツール�
 - **Integrated Compute**: CPU・メモリサイズを選択できるクラウドサーバー上でセッションを実行し, ユーザー/チーム領域のファイルはセッション間で永続化.
 - **Collaboration Spaces**: チームディレクトリと共有ソフトウェア環境により, コードやデータを共同管理. Real-Time Collaboration Server を用いると複数メンバーが同一セッションを同時編集できる.
 - **Tutorials and Workflows**: 個別タスク向けチュートリアルと, それらを組み合わせたワークフロー教材を提供し, 実践的なユースケースを段階的に再現できる.
+
+## Roman Notebooks の更新
+
+STScI が公開する `roman_notebooks` は, Roman Research Nexus で利用する解析例やチュートリアルをまとめたリポジトリである. 2026 年 10 月 23 日公開のパッチリリース `2026.2.3` では, MAST の TAP バックエンド変更後に動作しなくなっていた `catalog_database_access` notebook が修正された. Pan-STARRS DR2 のカタログ名とカラム名は `mean_object`, `gmeanpsfmag`, `imeanpsfmag`, `ymeanpsfmag`, `imeankronmag`, `ramean`, `decmean` のように小文字で指定する必要がある.
+
+同リリースでは, 既存でありながら目次に含まれていなかった `catalog_database_access`, `ccs_simulations`, `roman_target_visibility_tool`, `crds_reference_files`, `time_domain_analysis` が `_toc.yml` に追加された. これは notebook リポジトリのリリース情報であり, Nexus の各 platform image に収録される版は明記されていないため, 実行環境内の版を確認する必要がある.
 
 ## Accounts and Credits
 
