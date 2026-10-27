@@ -13,22 +13,28 @@ tags: [simulation, psf, point-spread function, Roman, WFI]
 - [STPSF Tutorials](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/stpsf-tutorials)
 - [Caveats of using STPSF for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/caveats-of-using-stpsf-for-roman)
 - [STPSF on readthedocs](https://stpsf.readthedocs.io/en/latest/index.html)
+- [STPSF v2.3.0 release](https://github.com/spacetelescope/stpsf/releases/tag/2.3.0) (2026年10月27日)
 
 
 ## 概要
 
 STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Function, PSF) をシミュレーションするための Python パッケージである. 効率的な計算手法と最新のミッション固有参照データを使用し, 幅広い観測モードと科学シナリオに対応する.
 
+## STPSF 2.3.0 (2026年10月27日)
+
+STPSF 2.3.0 では, NASA GSFC が2026年2月から3月に計算した最終打上げ前の Phase C WFI 光学モデルが導入された. 撮像フィルターについては各検出器25視野点の Zernike 係数, WFI 固有の検出器別高空間周波数光路差 (Optical Path Difference, OPD) マップ, 検出器内の視野点に依存する瞳像を用いる. また, ピクセル間容量結合 (Interpixel Capacitance, IPC) が既定で適用される. この版には対応する新しい参照データパッケージが必要であり, 旧版のデータをそのまま使用できない.
+
 ## 対応機能
 
 ### Wide Field Instrument (WFI) - 完全対応
 - **撮像モード**: 全フィルターでの撮像 PSF 計算
 - **分光モード**: Prism と Grism モード (分散なし PSF)
-- **視野依存収差**: 18 検出器 × 5 視野点での Zernike 係数補間
+- **視野依存収差**: 撮像は18検出器 × 25視野点, Prism と Grism は18検出器 × 5視野点での Zernike 係数補間
+- **検出器効果**: 電荷拡散と IPC を畳み込みとして適用
 
-### Coronograph Instrument - 制限あり
-- **現状**: Shaped Pupil Coronagraph (SPC) のプロトタイプのみ
-- **注意**: 2017 年以降更新されておらず, 実装は不完全
+### Coronagraph Instrument - 非対応
+
+旧版に含まれていた初期の Roman Coronagraph 試作モデルは廃止され, STPSF 2.3.0 で削除された. Coronagraph のシミュレーションには Roman Coronagraph Community Participation Program が開発する [corgisim](https://github.com/roman-corgi/corgisim) を参照する.
 
 ## インストールと基本使用
 
@@ -36,6 +42,8 @@ STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Func
 ```bash
 pip install stpsf
 ```
+
+STPSF 2.3.0 には同じ版の新しい参照データが必要である. 初回実行時の既定の自動取得先は `$HOME/data/stpsf-data` であり, 別の場所に配置する場合は環境変数 `STPSF_PATH` を設定する.
 
 ### 基本的な PSF 計算
 ```python
@@ -120,14 +128,17 @@ psf_centered = wfi.calc_psf(oversample=over, fov_pixels=fov)
 ## Roman 固有の入力データ
 
 ### データソース
-[Cycle 9 装置参照情報](https://roman.gsfc.nasa.gov/science/Roman_Reference_Information.html) (NASA GSFC Roman チーム提供) に基づく:
+
+STPSF 2.3.0 の WFI モデルは NASA GSFC が2026年春に作成した Phase C 光学モデルに基づく:
 
 - **フィルター透過曲線**: WFI の各フィルターの詳細な透過特性
-- **瞳マスク**: 検出器とフィルターごとに変化する入射瞳の形状
-- **視野依存収差**: 18 検出器 × 5 視野点での Noll Zernike 係数 (Z4-Z22)
+- **瞳マスク**: 撮像では各フィルター・検出器・視野点に対応する瞳像
+- **視野依存収差**: 撮像では18検出器 × 25視野点, Prism と Grism では18検出器 × 5視野点
+- **高空間周波数成分**: WFI 固有の検出器別 OPD マップ
 
 ### 波面誤差補間
-STPSF は Zernike 係数を位置と波長で補間し, 任意の検出器位置での総波面誤差を計算します.
+
+STPSF は位置と波長について Zernike 係数を補間し, 任意の有効な検出器位置と波長で PSF を計算する. 撮像モードでは与えられた Zernike 係数 Z1-Z45 から Z46-Z210 とそれより高次の総寄与を再構成し, 旧版で使用していた HST 近似ではなく WFI 固有の OPD マップを用いる.
 
 ## 高度な機能
 
@@ -146,19 +157,13 @@ STPSF は Zernike 係数を位置と波長で補間し, 任意の検出器位置
 
 ## 使用上の注意点と制限事項
 
-### 検出器レベル効果 (非対応)
-STPSF では以下の効果は **モデル化されません**:
-- 幾何学的歪み
-- ピクセル MTF (Modulation Transfer Function)
-- ピクセル内感度変化
-- ピクセル間容量結合
-- ノイズ源
+### 検出器レベル効果
 
-これらの効果が必要な場合は **STIPS** などの他ツールを使用してください.
+STPSF 2.3.0 は電荷拡散と IPC を PSF に畳み込む. IPC は既定で有効であり, `wfi.options['add_ipc']` で切り替えられる. 一方, ピクセル内感度変化, 飽和, 非線形性, 宇宙線, 読み出しノイズなどを含む完全な検出器画像は生成しない. 画像レベルの効果が必要な場合は **STIPS** または **Roman I-Sim** を使用する.
 
-### 光学系の近似
-- **主鏡研磨誤差**: Hubble Space Telescope (HST) の光学路差マップを近似として使用
-- **将来更新予定**: Roman 固有データが利用可能になり次第更新
+### 幾何学的歪み
+
+WFI の瞳像には幾何学的歪みが含まれるため, Roman WFI PSF には既定で歪みが適用され, 無効化できない.
 
 ### 分散 PSF の制限
 - **非対応**: 分散分光 PSF (Prism/Grism の波長分散効果) は計算されません
@@ -172,9 +177,9 @@ STPSF では以下の効果は **モデル化されません**:
 - **均等オーバーサンプリング**: PSF 中心が 4 ピクセルの交点に配置され, ピクセル中心ではない
 - **回避策**: オーバーサンプリングではなく WFI のピクセルスケール変更を使用
 
-### Roman Coronagraph の制限
-- **SPC のみ**: Shaped Pupil Coronagraph 観測モードのみ
-- **静的シミュレーション**: 収差なし静的波面, リレー光学系なし, DM 制御なし
+### Roman Coronagraph
+
+Roman Coronagraph は STPSF のモデル対象外である. 旧試作モデルは廃止後に削除されており, Coronagraph の解析では `corgisim` など専用の公式コミュニティツールを使用する.
 
 ## リソースとサポート
 
