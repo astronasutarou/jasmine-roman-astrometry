@@ -12,11 +12,18 @@ tags: [simulation, imaging, Roman, WFI, I-Sim, GalSim]
 - [Overview of Roman I-Sim](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-i-sim-the-roman-image-simulator/overview-of-roman-i-sim)
 - [Roman I-Sim Tutorials](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-i-sim-the-roman-image-simulator/roman-i-sim-tutorials)
 - [Caveats of using Roman I-Sim](https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-i-sim-the-roman-image-simulator/caveats-of-using-roman-i-sim)
+- [romanisim v0.16.0 release](https://github.com/spacetelescope/romanisim/releases/tag/v0.16.0) (2026年11月4日)
 
 
 ## 概要
 
 Roman I-Sim は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) 専用に設計された GalSim ベースの高精度画像シミュレーターである. 公式校正参照ファイル (CRDS) と STPSF 点広がり関数モデルを使用して, 現実的な Level-1 (L1) および Level-2 (L2) WFI データプロダクトを ASDF 形式で生成する.
+
+## Roman I-Sim 0.16.0 (2026年11月4日)
+
+Roman I-Sim 0.16.0 では, CRDS の ePSF 参照ファイルを検出器ごとに正しく選択し, IPC 未適用の `psf_noipc` 配列で天体を描画した後に L1 resultant へピクセル間容量結合 (Interpixel Capacitance, IPC) を適用するよう修正された. これにより IPC の二重適用を避け, 宇宙線の電荷が IPC によって隣接画素へ広がる場合には対応する `JUMP_DET` フラグも拡張する. また, CRDS の逆線形性参照ファイルから pedestal を取得して L1 ramp の reset level に用い, L2 画像には新しい Roman データモデルで要求される `dq2` 配列を追加する.
+
+座標関連では, 最近の CRDS 歪み参照ファイルに合わせて内部の `WFI_CEN` 座標を更新し, L3 mosaic の `wcsinfo` が実際の WCS と一致するよう修正された. 辞書形式の入力でも使用した歪み参照ファイルを `crds://` URI としてメタデータに記録する. これらはシミュレーションの座標・来歴情報の整合性を改善する変更であり, リリースノートは天体位置精度の定量的な改善を示していない.
 
 ## 主要機能
 
@@ -454,7 +461,7 @@ ris.simulate_image_file(args, metadata, catalog, rng, persist)
 - **回転角使用時**: R.A., Dec. とピクセル空間で二重に切り取り発生
 
 ### CRDS 使用時の注意点
-- **未使用参照ファイル**: photom, IPC 参照ファイルは未対応
+- **IPC**: 0.16.0 では CRDS ePSF の `psf_noipc` 配列を使用し, L1 resultant の生成時に IPC を適用する. 旧版と結果を比較する場合は, IPC の二重適用修正に注意する
 - **座標系問題**: `--usecrds` なしでは東西が逆転する問題
 
 ### パフォーマンス制限
