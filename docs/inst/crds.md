@@ -11,6 +11,7 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 - [CRDS for Reference Files](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (STScI, Publication: 2024-01-05, Latest Update: 2024-12-20)
 - [`romancal` DMS Operational Build Versions](https://github.com/spacetelescope/romancal#dms-operational-build-versions) (STScI)
 - [`romancal` 1.0.3 release](https://github.com/spacetelescope/romancal/releases/tag/1.0.3) (STScI, 2026-10-19)
+- [`romancal` 1.2.0 release](https://github.com/spacetelescope/romancal/releases/tag/1.2.0) (STScI, 2026-11-10)
 
 ## 概要
 
@@ -22,7 +23,7 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 
 ## 現行の校正状況
 
-2026-10-20 時点の `latest` context は, 2026-10-13 に delivery および activation された `roman_0077.pmap` である. この context は, `roman_0076.pmap` までの imaging, detector, spectral calibration files を引き継ぎ, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を更新している.
+2026-11-11 時点の `latest` context は, 2026-10-13 に delivery および activation された `roman_0077.pmap` である. この context は, `roman_0076.pmap` までの imaging, detector, spectral calibration files を引き継ぎ, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を更新している.
 
 ### Imaging および detector calibration
 
@@ -82,13 +83,24 @@ export CRDS_PATH=$HOME/data/crds_cache/
 export CRDS_CONTEXT=roman_0077.pmap
 ```
 
-`latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, 2026-10-19 公開の release 1.0.3 (26Q3_B22.6) に `roman_0077.pmap`, release 1.0.2 (26Q3_B22.3) に `roman_0055.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない. `1.0.3` は Build 22 系の patch release であり, Build 23 の `1.1.0` より新しい運用系列を意味しない.
+`latest` context は更新され得る. 既存結果を再現する場合は, 処理時点の具体的な PMAP 名を指定し, pipeline release に対応する検証済み context も確認する. 公式 `romancal` release table では, 2026-11-10 公開の release 1.2.0 (27Q1_B24) と 2026-10-19 公開の release 1.0.3 (26Q3_B22.6) に `roman_0077.pmap`, release 1.0.2 (26Q3_B22.3) に `roman_0055.pmap` が対応付けられている. release と対応 context の組は, CRDS server 上の `latest` context と必ずしも同一ではない. `1.0.3` は Build 22 系の patch release であり, Build 23 の `1.1.0` より新しい運用系列を意味しない.
 
 ### WFI18 first-read transient の変更
 
 `romancal` 1.0.3 は, WFI18 の最初の resultant に現れる transient signal を補正する `wfi18_transient` step を更新した. 4 resultants の exposure では, 従来の affected rows の masking への fallback に代えて, 最後の 2 resultants から弱く照射された pixels を選び, transient を fit して減算する. さらに, 弱照射 pixels の選択基準が各 column の中央値と比較されていた実装誤りを修正し, 意図どおり各 row の中央値と比較するようになった. この処理は WFI imaging, prism, grism の WFI18 data に適用される.
 
 この変更は CRDS reference file の追加・差し替えではなく, 同じ `roman_0077.pmap` に対応する pipeline code の変更である. WFI18 の結果を比較・再現する場合は, CRDS context だけでなく `romancal` version も確認する.
+
+### `romancal` 1.2.0 の主な変更
+
+2026 年 11 月 10 日公開の `romancal` 1.2.0 は, DMS operational build `27Q1_B24` に対応し, 検証済み CRDS context として `roman_0077.pmap` を用いる. 解析に関係する主な変更は次のとおりである.
+
+- `TimeDomainCatalogStep` を追加し, 一つ以上の入力 catalog の天体位置について, 個々の L2 image 上で PSF photometry と forced aperture photometry を行えるようになった.
+- `SourceCatalogStep` は, 複数スケールの matched filter と watershed deblending を組み合わせる検出法へ変更された. `kernel_fwhm` と `bkg_boxsize` の単位は pixel から arcsec へ変わり, catalog には検出 template・significance, 非 mask Kron flux, `image_flags2`, PSF 位置誤差などが追加された. また, L2 image と source catalog から empirical ePSF reference file を作る `roman_epsf_from_model` が追加された.
+- reference-pixel correction は sigma clipping による外れ値除去と DR15 voltage sag の row ごとの動的補正に対応し, saturation step は飽和画素からの charge migration の影響を既定で mask するようになった. 2, 3, 4 resultants の image も処理できる.
+- `TweakRegStep` の sigma clipping は既定の統計量が RMSE から MAD に変わり, 既定の反復上限が 3 から 10 へ増えた. crowded field での不一致 pair に対する robustness を意図した変更である. telescope pointing の算出法と skycell WCS の handedness の扱いも更新された.
+
+これらは pipeline code と data-product behavior の変更であり, 新しい CRDS context の公開を意味しない. 特に検出 parameter の単位, source-catalog column, DQ 配列, PSF model, astrometric alignment の挙動が変わるため, 旧 release と結果を比較する場合は `romancal` version と parameter file を記録する. TweakReg と pointing の変更は処理の robustness や WCS の一貫性に関係するが, 個別データに対する absolute astrometric accuracy の改善量を保証するものではない.
 
 ## 解析時の確認事項
 
@@ -101,7 +113,7 @@ export CRDS_CONTEXT=roman_0077.pmap
 
 ## Context 更新履歴
 
-[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-10-20 閲覧) の主な context 更新を次にまとめる. RMAP のリンクは, 各 context で更新された参照ファイル種別を示す.
+[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-11-11 閲覧) の主な context 更新を次にまとめる. RMAP のリンクは, 各 context で更新された参照ファイル種別を示す.
 
 | Context | 日付 | 更新内容 |
 |---|---|---|
