@@ -21,7 +21,7 @@ Roman I-Sim は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) 専用に設�
 
 ## Roman I-Sim 0.16.0 (2026年11月4日)
 
-Roman I-Sim 0.16.0 では, CRDS の ePSF 参照ファイルを検出器ごとに正しく選択し, IPC 未適用の `psf_noipc` 配列で天体を描画した後に L1 resultant へピクセル間容量結合 (Interpixel Capacitance, IPC) を適用するよう修正された. これにより IPC の二重適用を避け, 宇宙線の電荷が IPC によって隣接画素へ広がる場合には対応する `JUMP_DET` フラグも拡張する. また, CRDS の逆線形性参照ファイルから pedestal を取得して L1 ramp の reset level に用い, L2 画像には新しい Roman データモデルで要求される `dq2` 配列を追加する.
+Roman I-Sim 0.16.0 では, CRDS の ePSF 参照ファイルを検出器ごとに正しく選択し, IPC 未適用の `psf_noipc` 配列で天体を描画した後に L1 resultant へピクセル間容量結合 (Interpixel Capacitance, IPC) を適用するよう修正された. これにより IPC の二重適用を避け, 宇宙線の電荷が IPC によって隣接画素へ広がる場合には対応する `JUMP_DET` フラグも拡張する. また, CRDS の線形性参照ファイルから pedestal を取得して L1 ramp の reset level に用い, L2 画像には新しい Roman データモデルで要求される `dq2` 配列を追加する.
 
 座標関連では, 最近の CRDS 歪み参照ファイルに合わせて内部の `WFI_CEN` 座標を更新し, L3 mosaic の `wcsinfo` が実際の WCS と一致するよう修正された. 辞書形式の入力でも使用した歪み参照ファイルを `crds://` URI としてメタデータに記録する. これらはシミュレーションの座標・来歴情報の整合性を改善する変更であり, リリースノートは天体位置精度の定量的な改善を示していない.
 
