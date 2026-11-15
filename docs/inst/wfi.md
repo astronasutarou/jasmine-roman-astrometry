@@ -163,9 +163,12 @@ NASA が 2026 年 10 月 14 日に公開した報告によれば, 軌道上で�
 
 この値はコミッショニング中の望遠鏡指向安定度であり, WFI データから得られる絶対・相対アストロメトリ精度を直接表すものではない. ガイダンス系の調整は継続中であり, 分光パターンを利用するガイド方式も同報告時点では今後の検証項目である.
 
+NASA は 2026 年 11 月 13 日, WFI と observatory の内部 alignment が完了したと報告した. チームは恒星像の実測位置と予測位置を比較し, 18 detectors 上の guide star の位置関係を表す内部 map を更新した. この map は pointing と微小 drift の補正に用いられる. 同報告は alignment residual や uncertainty の数値を示していないため, この完了報告だけから WFI science products の absolute または relative astrometric accuracy を定量化することはできない.
+
 出典:
 
 - [NASA Checks Roman Guidance System, Takes First Coronagraph Observation](https://roman.ipac.caltech.edu/news/nasa-checks-roman-guidance-system-takes-first-coronagraph-observation) (Caltech/IPAC, 2026 年 9 月 30 日)
+- [Instruments on NASA's Roman Space Telescope Get in Sync for Science](https://science.nasa.gov/blogs/roman/2026/11/13/instruments-on-nasas-roman-space-telescope-get-in-sync-for-science/) (NASA, 2026 年 11 月 13 日)
 
 ## WFI の科学的意義
 
@@ -196,4 +199,4 @@ NASA が 2026 年 10 月 14 日に公開した報告によれば, 軌道上で�
 
 ---
 
-**更新情報**: Roman Space Telescope Technical Information Repository v1.2 (2025 年 7 月), Caltech/IPAC のファインガイダンス報告 (2026 年 9 月 30 日), NASA の WFI 光学調整報告 (2026 年 10 月 14 日公開, 10 月 15 日更新) に基づく
+**更新情報**: Roman Space Telescope Technical Information Repository v1.2 (2025 年 7 月), Caltech/IPAC のファインガイダンス報告 (2026 年 9 月 30 日), NASA の WFI 光学調整報告 (2026 年 10 月 14 日公開, 10 月 15 日更新), NASA の装置 alignment 完了報告 (2026 年 11 月 13 日) に基づく
