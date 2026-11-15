@@ -9,12 +9,6 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 このページの内容は主に以下のソースを引用・参考にしている:
 
 - [CRDS for Reference Files](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (STScI, Publication: 2024-01-05, Latest Update: 2024-12-20)
-- [Roman CRDS All Contexts](https://roman-crds.stsci.edu/display_all_contexts/) (STScI, 2026-11-15 閲覧)
-- [`roman_wfi_epsf_0005.rmap`](https://roman-crds.stsci.edu/browse/roman_wfi_epsf_0005.rmap) (STScI, Delivery/Activation: 2026-11-12)
-- [`romancal` DMS Operational Build Versions](https://github.com/spacetelescope/romancal#dms-operational-build-versions) (STScI)
-- [`romancal` 1.2.0 release](https://github.com/spacetelescope/romancal/releases/tag/1.2.0) (STScI, 2026-11-10)
-- [`romancal` 1.0.3 release](https://github.com/spacetelescope/romancal/releases/tag/1.0.3) (STScI, 2026-10-19)
-- [`romancal` 1.2.0 release](https://github.com/spacetelescope/romancal/releases/tag/1.2.0) (STScI, 2026-11-10)
 
 ## 概要
 
@@ -122,21 +116,23 @@ export CRDS_CONTEXT=roman_0078.pmap
 - 過去の data release や operational build は, server 上の `latest` ではなく指定された検証済み context を用いる場合がある.
 - BAM や distortion 更新の astrometry への影響を報告する場合は, CRDS の説明と実データで測定した結果を区別する.
 
-## Context 更新履歴
+## Context と pipeline の更新履歴
 
-[Roman CRDS](https://roman-crds.stsci.edu/) (STScI, 2026-11-15 閲覧) の主な context 更新を次にまとめる. RMAP のリンクは, 各 context で更新された参照ファイル種別を示す.
+[Roman CRDS All Contexts](https://roman-crds.stsci.edu/display_all_contexts/) (STScI, 2026-11-15 閲覧) と [`romancal` DMS Operational Build Versions](https://github.com/spacetelescope/romancal#dms-operational-build-versions) に基づき, 主な context と pipeline release の更新を次にまとめる. RMAP のリンクは, 各 context で更新された参照ファイル種別を示す.
 
-| Context | 日付 | 更新内容 |
-|---|---|---|
-| [`roman_0078.pmap`](https://roman-crds.stsci.edu/context_table/roman_0078.pmap) | Delivery/Activation: 2026-11-12 | 全 detectors に流用されていた開発用 WFI02 ePSF files を除去し, detector 別 files を選択する [ePSF mapping](https://roman-crds.stsci.edu/browse/roman_wfi_epsf_0005.rmap) に更新 |
-| [`roman_0077.pmap`](https://roman-crds.stsci.edu/context_table/roman_0077.pmap) | Delivery/Activation: 2026-10-13 | CAR-86.17 の軌道上観測に基づいて 2026-10-13 に生成された SIAF を反映した [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0008.rmap), [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0006.rmap), [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0006.rmap) |
-| [`roman_0076.pmap`](https://roman-crds.stsci.edu/context_table/roman_0076.pmap) | Delivery/Activation: 2026-10-09 | CAR-86.15 に基づく SIAF `PRDOPSRSOC-013` を反映した [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0007.rmap), [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0005.rmap), [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0005.rmap) |
-| [`roman_0075.pmap`](https://roman-crds.stsci.edu/context_table/roman_0075.pmap) | Delivery/Activation: 2026-10-08 | CAR-86.11 に基づく SIAF `PRDOPSRSOC-012` を反映した [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0004.rmap) と [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0004.rmap) |
-| [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) | Delivery: 2026-10-05 | 最初の PFAC 後の軌道上 quaternion 値を反映した [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) |
-| [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) | Activation: 2026-10-02 | grism/prism 用の初期 [optical model](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [absolute flux calibration](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [spectral PSF](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap), [relative flux calibration](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [small-scale flat-field](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) |
-| [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) | Activation: 2026-09-24 | [flat](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap), [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap), [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap), [mask](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [photom](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap), [linearity](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [inverse linearity](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [saturation](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) |
-| [`roman_0067.pmap`](https://roman-crds.stsci.edu/context_table/roman_0067.pmap) | Activation: 2026-09-21 | CAR-86.4/86.7 の恒星観測に基づく [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0005.rmap); `roman_wfi_bam_0004.asdf` を追加 |
-| [`roman_0066.pmap`](https://roman-crds.stsci.edu/context_table/roman_0066.pmap) | Activation: 2026-09-19 | CAR-86.4 の恒星観測に基づく BAM |
-| [`roman_0065.pmap`](https://roman-crds.stsci.edu/context_table/roman_0065.pmap) | Activation: 2026-09-16 | commissioning で測定した軌道上 BAM を初めて追加 |
+| 種別 | Context / release | 日付 | 更新内容 |
+|---|---|---|---|
+| CRDS | [`roman_0078.pmap`](https://roman-crds.stsci.edu/context_table/roman_0078.pmap) | Delivery/Activation: 2026-11-12 | 全 detectors に流用されていた開発用 WFI02 ePSF files を除去し, detector 別 files を選択する [ePSF mapping](https://roman-crds.stsci.edu/browse/roman_wfi_epsf_0005.rmap) に更新 |
+| Pipeline | [`romancal` 1.2.0](https://github.com/spacetelescope/romancal/releases/tag/1.2.0) | Release: 2026-11-10 | DMS operational build `27Q1_B24`; 検証済み context は `roman_0077.pmap` |
+| Pipeline | [`romancal` 1.0.3](https://github.com/spacetelescope/romancal/releases/tag/1.0.3) | Release: 2026-10-19 | DMS operational build `26Q3_B22.6`; 検証済み context は `roman_0077.pmap`; WFI18 first-read transient 処理を更新 |
+| CRDS | [`roman_0077.pmap`](https://roman-crds.stsci.edu/context_table/roman_0077.pmap) | Delivery/Activation: 2026-10-13 | CAR-86.17 の軌道上観測に基づいて 2026-10-13 に生成された SIAF を反映した [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0008.rmap), [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0006.rmap), [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0006.rmap) |
+| CRDS | [`roman_0076.pmap`](https://roman-crds.stsci.edu/context_table/roman_0076.pmap) | Delivery/Activation: 2026-10-09 | CAR-86.15 に基づく SIAF `PRDOPSRSOC-013` を反映した [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0007.rmap), [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0005.rmap), [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0005.rmap) |
+| CRDS | [`roman_0075.pmap`](https://roman-crds.stsci.edu/context_table/roman_0075.pmap) | Delivery/Activation: 2026-10-08 | CAR-86.11 に基づく SIAF `PRDOPSRSOC-012` を反映した [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0004.rmap) と [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0004.rmap) |
+| CRDS | [`roman_0074.pmap`](https://roman-crds.stsci.edu/context_table/roman_0074.pmap) | Delivery: 2026-10-05 | 最初の PFAC 後の軌道上 quaternion 値を反映した [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0006.rmap) |
+| CRDS | [`roman_0073.pmap`](https://roman-crds.stsci.edu/context_table/roman_0073.pmap) | Activation: 2026-10-02 | grism/prism 用の初期 [optical model](https://roman-crds.stsci.edu/browse/roman_wfi_optmodel_0002.rmap), [absolute flux calibration](https://roman-crds.stsci.edu/browse/roman_wfi_absflux_0002.rmap), [spectral PSF](https://roman-crds.stsci.edu/browse/roman_wfi_specpsf_0002.rmap), [relative flux calibration](https://roman-crds.stsci.edu/browse/roman_wfi_relflux_0002.rmap), [small-scale flat-field](https://roman-crds.stsci.edu/browse/roman_wfi_sflat_0002.rmap) |
+| CRDS | [`roman_0072.pmap`](https://roman-crds.stsci.edu/context_table/roman_0072.pmap) | Activation: 2026-09-24 | [flat](https://roman-crds.stsci.edu/browse/roman_wfi_flat_0008.rmap), [pixel area map](https://roman-crds.stsci.edu/browse/roman_wfi_area_0003.rmap), [distortion](https://roman-crds.stsci.edu/browse/roman_wfi_distortion_0003.rmap), [mask](https://roman-crds.stsci.edu/browse/roman_wfi_mask_0005.rmap), [photom](https://roman-crds.stsci.edu/browse/roman_wfi_photom_0006.rmap), [linearity](https://roman-crds.stsci.edu/browse/roman_wfi_linearity_0006.rmap), [inverse linearity](https://roman-crds.stsci.edu/browse/roman_wfi_inverselinearity_0006.rmap), [saturation](https://roman-crds.stsci.edu/browse/roman_wfi_saturation_0004.rmap) |
+| CRDS | [`roman_0067.pmap`](https://roman-crds.stsci.edu/context_table/roman_0067.pmap) | Activation: 2026-09-21 | CAR-86.4/86.7 の恒星観測に基づく [BAM](https://roman-crds.stsci.edu/browse/roman_wfi_bam_0005.rmap); `roman_wfi_bam_0004.asdf` を追加 |
+| CRDS | [`roman_0066.pmap`](https://roman-crds.stsci.edu/context_table/roman_0066.pmap) | Activation: 2026-09-19 | CAR-86.4 の恒星観測に基づく BAM |
+| CRDS | [`roman_0065.pmap`](https://roman-crds.stsci.edu/context_table/roman_0065.pmap) | Activation: 2026-09-16 | commissioning で測定した軌道上 BAM を初めて追加 |
 
 注: `roman_0074.pmap` は context history に delivery 日付のみが表示されるため, 表では delivery 日付を示した.
