@@ -14,6 +14,7 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 - [`romancal` DMS Operational Build Versions](https://github.com/spacetelescope/romancal#dms-operational-build-versions) (STScI)
 - [`romancal` 1.2.0 release](https://github.com/spacetelescope/romancal/releases/tag/1.2.0) (STScI, 2026-11-10)
 - [`romancal` 1.0.3 release](https://github.com/spacetelescope/romancal/releases/tag/1.0.3) (STScI, 2026-10-19)
+- [`romancal` 1.2.0 release](https://github.com/spacetelescope/romancal/releases/tag/1.2.0) (STScI, 2026-11-10)
 
 ## 概要
 
@@ -100,6 +101,17 @@ export CRDS_CONTEXT=roman_0078.pmap
 `romancal` 1.0.3 は, WFI18 の最初の resultant に現れる transient signal を補正する `wfi18_transient` step を更新した. 4 resultants の exposure では, 従来の affected rows の masking への fallback に代えて, 最後の 2 resultants から弱く照射された pixels を選び, transient を fit して減算する. さらに, 弱照射 pixels の選択基準が各 column の中央値と比較されていた実装誤りを修正し, 意図どおり各 row の中央値と比較するようになった. この処理は WFI imaging, prism, grism の WFI18 data に適用される.
 
 この変更は CRDS reference file の追加・差し替えではなく, 同じ `roman_0077.pmap` に対応する pipeline code の変更である. WFI18 の結果を比較・再現する場合は, CRDS context だけでなく `romancal` version も確認する.
+
+### `romancal` 1.2.0 の主な変更
+
+2026 年 11 月 10 日公開の `romancal` 1.2.0 は, DMS operational build `27Q1_B24` に対応し, 検証済み CRDS context として `roman_0077.pmap` を用いる. 解析に関係する主な変更は次のとおりである.
+
+- `TimeDomainCatalogStep` を追加し, 一つ以上の入力 catalog の天体位置について, 個々の L2 image 上で PSF photometry と forced aperture photometry を行えるようになった.
+- `SourceCatalogStep` は, 複数スケールの matched filter と watershed deblending を組み合わせる検出法へ変更された. `kernel_fwhm` と `bkg_boxsize` の単位は pixel から arcsec へ変わり, catalog には検出 template・significance, 非 mask Kron flux, `image_flags2`, PSF 位置誤差などが追加された. また, L2 image と source catalog から empirical ePSF reference file を作る `roman_epsf_from_model` が追加された.
+- reference-pixel correction は sigma clipping による外れ値除去と DR15 voltage sag の row ごとの動的補正に対応し, saturation step は飽和画素からの charge migration の影響を既定で mask するようになった. 2, 3, 4 resultants の image も処理できる.
+- `TweakRegStep` の sigma clipping は既定の統計量が RMSE から MAD に変わり, 既定の反復上限が 3 から 10 へ増えた. crowded field での不一致 pair に対する robustness を意図した変更である. telescope pointing の算出法と skycell WCS の handedness の扱いも更新された.
+
+これらは pipeline code と data-product behavior の変更であり, 新しい CRDS context の公開を意味しない. 特に検出 parameter の単位, source-catalog column, DQ 配列, PSF model, astrometric alignment の挙動が変わるため, 旧 release と結果を比較する場合は `romancal` version と parameter file を記録する. TweakReg と pointing の変更は処理の robustness や WCS の一貫性に関係するが, 個別データに対する absolute astrometric accuracy の改善量を保証するものではない.
 
 ## 解析時の確認事項
 
