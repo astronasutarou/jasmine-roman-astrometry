@@ -13,16 +13,18 @@ tags: [simulation, psf, point-spread function, Roman, WFI]
 - [STPSF Tutorials](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/stpsf-tutorials)
 - [Caveats of using STPSF for Roman](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/caveats-of-using-stpsf-for-roman)
 - [STPSF on readthedocs](https://stpsf.readthedocs.io/en/latest/index.html)
-- [STPSF v2.3.0 release](https://github.com/spacetelescope/stpsf/releases/tag/2.3.0) (2026年10月27日)
+- [STPSF v2.3.1 release](https://github.com/spacetelescope/stpsf/releases/tag/2.3.1) (2026年11月11日)
 
 
 ## 概要
 
 STPSF は JWST と Roman 宇宙望遠鏡の点広がり関数 (Point Spread Function, PSF) をシミュレーションするための Python パッケージである. 効率的な計算手法と最新のミッション固有参照データを使用し, 幅広い観測モードと科学シナリオに対応する.
 
-## STPSF 2.3.0 (2026年10月27日)
+## STPSF 2.3.1 (2026年11月11日)
 
-STPSF 2.3.0 では, NASA GSFC が2026年2月から3月に計算した最終打上げ前の Phase C WFI 光学モデルが導入された. 撮像フィルターについては各検出器25視野点の Zernike 係数, WFI 固有の検出器別高空間周波数光路差 (Optical Path Difference, OPD) マップ, 検出器内の視野点に依存する瞳像を用いる. また, ピクセル間容量結合 (Interpixel Capacitance, IPC) が既定で適用される. この版には対応する新しい参照データパッケージが必要であり, 旧版のデータをそのまま使用できない.
+STPSF 2.3.1 は, 2.3.0 で導入された WFI モデルの不具合を修正したパッチリリースである. 検出器を変更したときに対応する高空間周波数光路差 (Optical Path Difference, OPD) マップへ切り替える処理を復元し, WFI の波面座標反転を Zernike 波面の追加後に適用するよう順序を修正した. また, `psf_grid()` が電荷拡散とピクセル間容量結合 (Interpixel Capacitance, IPC) を反映し, 実行後にユーザー指定の `add_ipc` 設定を復元するようになった. これらは検出器別 PSF と PSF グリッドの整合性に影響する修正であるが, リリースノートは位置天文精度の定量的な改善を示していない.
+
+基礎となる 2.3.0 では, NASA GSFC が2026年2月から3月に計算した最終打上げ前の Phase C WFI 光学モデルが導入された. 撮像フィルターについては各検出器25視野点の Zernike 係数, WFI 固有の検出器別高空間周波数 OPD マップ, 検出器内の視野点に依存する瞳像を用いる. また, IPC が既定で適用される. 2.3.0 で更新された参照データパッケージが必要であり, 旧版のデータをそのまま使用できない.
 
 ## 対応機能
 
@@ -43,7 +45,7 @@ STPSF 2.3.0 では, NASA GSFC が2026年2月から3月に計算した最終打�
 pip install stpsf
 ```
 
-STPSF 2.3.0 には同じ版の新しい参照データが必要である. 初回実行時の既定の自動取得先は `$HOME/data/stpsf-data` であり, 別の場所に配置する場合は環境変数 `STPSF_PATH` を設定する.
+STPSF 2.3 系には 2.3.0 で更新された参照データが必要である. 初回実行時の既定の自動取得先は `$HOME/data/stpsf-data` であり, 別の場所に配置する場合は環境変数 `STPSF_PATH` を設定する.
 
 ### 基本的な PSF 計算
 ```python
@@ -129,7 +131,7 @@ psf_centered = wfi.calc_psf(oversample=over, fov_pixels=fov)
 
 ### データソース
 
-STPSF 2.3.0 の WFI モデルは NASA GSFC が2026年春に作成した Phase C 光学モデルに基づく:
+STPSF 2.3.1 の WFI モデルは NASA GSFC が2026年春に作成した Phase C 光学モデルに基づく:
 
 - **フィルター透過曲線**: WFI の各フィルターの詳細な透過特性
 - **瞳マスク**: 撮像では各フィルター・検出器・視野点に対応する瞳像
@@ -159,7 +161,7 @@ STPSF は位置と波長について Zernike 係数を補間し, 任意の有効
 
 ### 検出器レベル効果
 
-STPSF 2.3.0 は電荷拡散と IPC を PSF に畳み込む. IPC は既定で有効であり, `wfi.options['add_ipc']` で切り替えられる. 一方, ピクセル内感度変化, 飽和, 非線形性, 宇宙線, 読み出しノイズなどを含む完全な検出器画像は生成しない. 画像レベルの効果が必要な場合は **STIPS** または **Roman I-Sim** を使用する.
+STPSF 2.3.1 は電荷拡散と IPC を PSF に畳み込む. IPC は既定で有効であり, `wfi.options['add_ipc']` で切り替えられる. 一方, ピクセル内感度変化, 飽和, 非線形性, 宇宙線, 読み出しノイズなどを含む完全な検出器画像は生成しない. 画像レベルの効果が必要な場合は **STIPS** または **Roman I-Sim** を使用する.
 
 ### 幾何学的歪み
 
