@@ -170,6 +170,21 @@ NASA は 2026 年 11 月 13 日, WFI と observatory の内部 alignment が完�
 - [NASA Checks Roman Guidance System, Takes First Coronagraph Observation](https://roman.ipac.caltech.edu/news/nasa-checks-roman-guidance-system-takes-first-coronagraph-observation) (Caltech/IPAC, 2026 年 9 月 30 日)
 - [Instruments on NASA's Roman Space Telescope Get in Sync for Science](https://science.nasa.gov/blogs/roman/2026/11/13/instruments-on-nasas-roman-space-telescope-get-in-sync-for-science/) (NASA, 2026 年 11 月 13 日)
 
+## 検出器の軌道上校正計画
+
+STScI が 2026 年 11 月 18 日に公開した計画では, WFI の detector calibration として dark, flat, non-linearity, read noise, persistence, gain, inter-pixel capacitance (IPC) などを扱う. 詳細な観測日程は commissioning の結果を取り込んで決定されるため, 以下の頻度は計画値である.
+
+- **Dark**: 週ごとの観測を予定する. imaging の dark signal は exposure pipeline で減算され, detector ごとの参照ファイルは CRDS で管理される. 地上試験に基づく一定 dark rate の近似は commissioning 中に再検証される.
+- **Pixel-level flat**: 月ごとに RCS を用いた校正を予定する. pixel-level flat は大規模な感度変動を表す L-flat と結合され, exposure pipeline で適用される.
+- **Classical non-linearity**: 内部 flat の解析を用い, 年に一度の検証を予定する. 補正は exposure pipeline で適用される.
+- **Read noise と gain**: それぞれ週ごと, 月ごとの監視を予定し, 必要に応じて参照ファイルを更新する. IPC の観測頻度は未定である.
+
+これらは観測・校正の計画であり, 軌道上での実施完了や校正精度の達成を示すものではない. 実データの解析では適用された CRDS context と参照ファイルを確認する.
+
+出典:
+
+- [Detector Calibrations](https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/wfi-characterization-activities/on-orbit-calibration-plan/detector-calibrations) (STScI, 2026 年 11 月 18 日公開)
+
 ## WFI の科学的意義
 
 ### サーベイ能力
