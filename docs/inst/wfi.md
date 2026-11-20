@@ -178,6 +178,7 @@ STScI が 2026 年 11 月 18 日に公開した計画では, WFI の detector ca
 - **Pixel-level flat**: 月ごとに RCS を用いた校正を予定する. pixel-level flat は大規模な感度変動を表す L-flat と結合され, exposure pipeline で適用される.
 - **Classical non-linearity**: 内部 flat の解析を用い, 年に一度の検証を予定する. 補正は exposure pipeline で適用される.
 - **Read noise**: 週ごとの監視を予定し, 必要に応じて参照ファイルを更新する.
+- **Persistence**: 観測頻度は未定である.
 - **Gain**: 月ごとの監視を予定し, 必要に応じて参照ファイルを更新する.
 - **IPC**: 観測頻度は未定である.
 
