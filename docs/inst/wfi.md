@@ -177,7 +177,9 @@ STScI が 2026 年 11 月 18 日に公開した計画では, WFI の detector ca
 - **Dark**: 週ごとの観測を予定する. imaging の dark signal は exposure pipeline で減算され, detector ごとの参照ファイルは CRDS で管理される. 地上試験に基づく一定 dark rate の近似は commissioning 中に再検証される.
 - **Pixel-level flat**: 月ごとに RCS を用いた校正を予定する. pixel-level flat は大規模な感度変動を表す L-flat と結合され, exposure pipeline で適用される.
 - **Classical non-linearity**: 内部 flat の解析を用い, 年に一度の検証を予定する. 補正は exposure pipeline で適用される.
-- **Read noise と gain**: それぞれ週ごと, 月ごとの監視を予定し, 必要に応じて参照ファイルを更新する. IPC の観測頻度は未定である.
+- **Read noise**: 週ごとの監視を予定し, 必要に応じて参照ファイルを更新する.
+- **Gain**: 月ごとの監視を予定し, 必要に応じて参照ファイルを更新する.
+- **IPC**: 観測頻度は未定である.
 
 これらは観測・校正の計画であり, 軌道上での実施完了や校正精度の達成を示すものではない. 実データの解析では適用された CRDS context と参照ファイルを確認する.
 
