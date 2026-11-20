@@ -13,6 +13,13 @@ tags: [Roman, Proposal, Cycle 1]
 - [Cycle 1 General Investigator Program Call for Proposals (PDF)](https://roman-docs.ipac.caltech.edu/files/208969831/208969832/2/1765405248840/Roman_Cycle1_Call.pdf)
 
 
+## Cycle 2 の公募
+
+Cycle 2 Call for Proposals は 2026 年 11 月 18 日に開始された. WFI データの解析, WFI 科学に直接関連する理論・実験, 公開済みの関連データの解析を対象とする. Cycle 2 では新規 General Astrophysics Survey (GAS) 観測の提案は募集されず, 次の募集は Cycle 3 に予定されている (変更の可能性がある).
+
+提出期限は 2027 年 2 月 24 日 17:00 PST であり, [Roman Telescope Proposal System (RTPS)](https://rtps-roman.ipac.caltech.edu) から提出する. 詳細と最新情報は [Cycle 2 Call for Proposals](https://roman-docs.ipac.caltech.edu/roman-proposals-home/cycle-2-call-for-proposals) および [NASA の公募案内](https://science.nasa.gov/astrophysics/programs/cosmic-origins/community/roman-space-telescope-cycle-2-call-for-proposals/) (2026-11-20) を参照する.
+
+
 ## Important Dates
 
 Cycle 1 プロポーザルのスケジュールは以下の通り.
