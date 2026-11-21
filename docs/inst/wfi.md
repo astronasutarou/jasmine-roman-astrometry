@@ -188,6 +188,22 @@ STScI が 2026 年 11 月 18 日に公開した計画では, WFI の detector ca
 
 - [Detector Calibrations](https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/wfi-characterization-activities/on-orbit-calibration-plan/detector-calibrations) (STScI, 2026 年 11 月 18 日公開)
 
+## 撮像位置校正の軌道上計画
+
+STScI が 2026 年 11 月 18 日に公開した撮像校正計画では, Astrometric Touchstone Field のディザー観測を用いて各 WFI detector の相対位置と幾何歪みを校正する. 校正は全 8 撮像フィルターについて年に一度行う計画である.
+
+- **小ディザー**: detector の端から端を覆う 7 × 7 pointings を用い, 18 detectors それぞれの幾何歪みをモデル化する.
+- **大ディザー**: WFI 全視野を覆う 9 × 5 pointings を用い, detector 間の歪み補正済み座標の対応を求める.
+- **Roll 観測**: 同一点を 60 度間隔の異なる位置角で観測し, 歪みの skew 成分を評価する.
+
+初期の参照位置には Gaia を用い, その後 Roman の測定から歪みと共通の基準座標系を同時に求める self-calibration で改善する計画である. 各 exposure の天体位置は effective PSF (ePSF) fitting で求め, 残差を二次元多項式, lookup table, pixel 単位の補正でモデル化する. フィルターごとの完全な distortion model は CRDS で提供され, 多項式係数は SIAF にも収録される予定である. 一方, Gaia を基準とした絶対位置校正は個々の exposure の pipeline で行われ, この軌道上校正計画には含まれない.
+
+STScI は位置較正に用いる空間依存 ePSF library を各撮像フィルターについて提供する計画も示している. これらは計画であり, 観測の完了や要求精度の達成を示すものではない. 実データには処理時に選択された参照ファイルを確認する.
+
+出典:
+
+- [Imaging Calibrations](https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/wfi-characterization-activities/on-orbit-calibration-plan/imaging-calibrations) (STScI, 2026 年 11 月 18 日公開)
+
 ## WFI の科学的意義
 
 ### サーベイ能力
