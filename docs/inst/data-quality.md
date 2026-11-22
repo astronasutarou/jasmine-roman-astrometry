@@ -21,7 +21,7 @@ DQ 値が 0 でないという理由だけで, 画素を一律に除外しては
 
 ## DQ フラグの由来
 
-### 校正参照ファイル
+### 較正参照ファイル
 
 Bad Pixel Mask (BPM) 参照ファイルは, 装置特性評価で既知となった画素挙動を記録する. `romancal.dq_init.DQInitStep` が BPM の情報をデータモデルの DQ 配列へコピーし, 後続ステップがそこへフラグを追加する.
 
@@ -29,7 +29,7 @@ BPM には, dead, low quantum efficiency (low QE), resistor-capacitor (RC)/inver
 
 参照ファイルは Roman Calibration Reference Data System (CRDS) で管理される. commissioning と運用で軌道上データが蓄積されるにつれ, BPM や `DO_NOT_USE` の対象クラスは更新される見込みである.
 
-### 校正パイプライン
+### 較正パイプライン
 
 `romancal` の各処理ステップも, 露光ごとの状態を既存の DQ 値へビット単位 OR で追加する. 代表例は次のとおり.
 
@@ -55,7 +55,7 @@ RAD と `roman_datamodels` の release はデータ構造の公開を示すが, 
 
 ### Level 2
 
-Level 2 (L2) の校正済み露光には, science data と uncertainty arrays と同じ画素寸法の DQ 配列がある. ここには参照ファイル由来の既知の画素特性と, `romancal` が露光ごとに検出した条件が統合されている.
+Level 2 (L2) の較正済み露光には, science data と uncertainty arrays と同じ画素寸法の DQ 配列がある. ここには参照ファイル由来の既知の画素特性と, `romancal` が露光ごとに検出した条件が統合されている.
 
 ### Level 3 mosaic
 
