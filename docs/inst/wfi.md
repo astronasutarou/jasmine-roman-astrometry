@@ -111,7 +111,7 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 ## Relative Calibration System (RCS)
 
 ### 概要
-内部較正光源として高精度キャリブレーションを提供する sophisticated system.
+内部較正光源として高精度キャリブレーションを提供する高機能なシステムである.
 
 ### 構成
 - **LED バンク**: 4 バンク (各 6 LED, 冗長性のため A/B 両側)
