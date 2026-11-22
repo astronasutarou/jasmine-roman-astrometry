@@ -1,10 +1,10 @@
 ---
-title: Roman CRDS と WFI 校正参照ファイル
-description: Roman WFI の現行 CRDS context, 校正参照ファイル, 解析時の確認事項
+title: Roman CRDS と WFI 較正参照ファイル
+description: Roman WFI の現行 CRDS context, 較正参照ファイル, 解析時の確認事項
 tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distortion, astrometry, romancal]
 ---
 
-# Roman CRDS と WFI 校正参照ファイル
+# Roman CRDS と WFI 較正参照ファイル
 
 このページの内容は主に以下のソースを引用・参考にしている:
 
@@ -12,13 +12,13 @@ tags: [Roman, WFI, CRDS, calibration, reference file, spectroscopy, BAM, distort
 
 ## 概要
 
-Calibration Reference Data System (CRDS) は, Roman WFI Data Pipelines が使用する校正参照ファイルと parameter file を管理する. exposure-level pipeline は, Level 1 (L1) の未校正データから Level 2 (L2) の校正済み rate image を生成する際に CRDS を利用する. Roman I-Sim などの simulation tool も一部の参照ファイルを利用する.
+Calibration Reference Data System (CRDS) は, Roman WFI Data Pipelines が使用する較正参照ファイルと parameter file を管理する. exposure-level pipeline は, Level 1 (L1) の未較正データから Level 2 (L2) の較正済み rate image を生成する際に CRDS を利用する. Roman I-Sim などの simulation tool も一部の参照ファイルを利用する.
 
 CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照ファイル種別に使用する reference mapping (RMAP) を指定する. RMAP は観測メタデータを参照ファイルへ対応付ける. `USEAFTER` は参照ファイルの適用開始時刻であり, CRDS は観測時刻以前で最も近い `USEAFTER` と, 参照ファイル種別ごとの追加条件を用いてファイルを選択する.
 
 処理に使われた context 名はデータ製品の ASDF metadata に記録される. L2 ASDF では, 使用した各参照ファイル名も metadata の dictionary と処理 log から確認できる. 再現性を保つには, `romancal` version だけでなく context 名と参照ファイル名を記録する.
 
-## 現行の校正状況
+## 現行の較正状況
 
 2026-11-15 時点の `latest` context は, 2026-11-12 に delivery および activation された `roman_0078.pmap` である. この context は, `roman_0077.pmap` までの imaging, detector, spectral calibration files, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を引き継ぎ, WFI empirical point-spread function (ePSF) の mapping を更新している.
 

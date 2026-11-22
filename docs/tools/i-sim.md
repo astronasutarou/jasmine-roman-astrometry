@@ -17,7 +17,7 @@ tags: [simulation, imaging, Roman, WFI, I-Sim, GalSim]
 
 ## 概要
 
-Roman I-Sim は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) 専用に設計された GalSim ベースの高精度画像シミュレーターである. 公式校正参照ファイル (CRDS) と STPSF 点広がり関数モデルを使用して, 現実的な Level-1 (L1) および Level-2 (L2) WFI データプロダクトを ASDF 形式で生成する.
+Roman I-Sim は Roman 宇宙望遠鏡 Wide Field Instrument (WFI) 専用に設計された GalSim ベースの高精度画像シミュレーターである. 公式較正参照ファイル (CRDS) と STPSF 点広がり関数モデルを使用して, 現実的な Level-1 (L1) および Level-2 (L2) WFI データプロダクトを ASDF 形式で生成する.
 
 ## Roman I-Sim 0.16.0 (2026年11月4日)
 
@@ -30,7 +30,7 @@ Roman I-Sim 0.16.0 では, CRDS の ePSF 参照ファイルを検出器ごとに
 ### シミュレーション能力
 - **全検出器対応**: 18 個の SCA (Sensor Chip Assembly) すべてをサポート
 - **全光学素子対応**: WFI 撮像フィルター全種 (F062-F213) での観測シミュレーション
-- **データレベル**: Level-1 (未校正 ramp) および Level-2 (校正済み rate) 両方に対応
+- **データレベル**: Level-1 (未較正 ramp) および Level-2 (較正済み rate) 両方に対応
 - **高精度レンダリング**: GalSim による精密シーン描画と光子レベル計算
 
 ### データ製品の特徴

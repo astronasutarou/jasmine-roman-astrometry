@@ -97,7 +97,7 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 1. **Focal Plane Array (FPA)**: 18 検出器アレイ
 2. **Element Wheel Assembly (EWA)**: 光学素子ホイール
 3. **Alignment Compensation Mechanism (ACM)**: 光軸調整機構
-4. **Relative Calibration System (RCS)**: 内部校正光源
+4. **Relative Calibration System (RCS)**: 内部較正光源
 5. **Cold Baffle**: 迷光除去バッフル
 6. **Sensor Control Electronics Assembly (SCEA)**: 検出器制御
 7. **Focal Plane Electronics (FPE)**: 焦点面電子回路
@@ -111,7 +111,7 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 ## Relative Calibration System (RCS)
 
 ### 概要
-内部校正光源として高精度キャリブレーションを提供する sophisticated system.
+内部較正光源として高精度キャリブレーションを提供する sophisticated system.
 
 ### 構成
 - **LED バンク**: 4 バンク (各 6 LED, 冗長性のため A/B 両側)
@@ -120,14 +120,14 @@ Wide Field Instrument (WFI) は Roman 宇宙望遠鏡の主力装置で, 近赤�
 - **フォトダイオード**: 光量モニタリング
 - **制御電子回路**: LED 制御システム
 
-### 校正機能
+### 較正機能
 1. **内部フラット**: Dark 素子背面拡散板による 6 波長フラット生成
-2. **線形性校正**: 複数光量レベルでの検出器応答特性測定 (精度 0.3% 以上)
-3. **Lamp On/Off 校正**: フィルター背面拡散板との組み合わせ校正
+2. **線形性較正**: 複数光量レベルでの検出器応答特性測定 (精度 0.3% 以上)
+3. **Lamp On/Off 較正**: フィルター背面拡散板との組み合わせ較正
 
 ### 動作モード
-- **Direct Illumination**: Dark 素子使用の直接照明校正
-- **Lamp On/Lamp Off**: フィルター併用の相対校正
+- **Direct Illumination**: Dark 素子使用の直接照明較正
+- **Lamp On/Lamp Off**: フィルター併用の相対較正
 
 ## 観測能力
 
@@ -170,19 +170,19 @@ NASA は 2026 年 11 月 13 日, WFI と observatory の内部 alignment が完�
 - [NASA Checks Roman Guidance System, Takes First Coronagraph Observation](https://roman.ipac.caltech.edu/news/nasa-checks-roman-guidance-system-takes-first-coronagraph-observation) (Caltech/IPAC, 2026 年 9 月 30 日)
 - [Instruments on NASA's Roman Space Telescope Get in Sync for Science](https://science.nasa.gov/blogs/roman/2026/11/13/instruments-on-nasas-roman-space-telescope-get-in-sync-for-science/) (NASA, 2026 年 11 月 13 日)
 
-## 検出器の軌道上校正計画
+## 検出器の軌道上較正計画
 
 STScI が 2026 年 11 月 18 日に公開した計画では, WFI の detector calibration として dark, flat, non-linearity, read noise, persistence, gain, inter-pixel capacitance (IPC) などを扱う. 詳細な観測日程は commissioning の結果を取り込んで決定されるため, 以下の頻度は計画値である.
 
 - **Dark**: 週ごとの観測を予定する. imaging の dark signal は exposure pipeline で減算され, detector ごとの参照ファイルは CRDS で管理される. 地上試験に基づく一定 dark rate の近似は commissioning 中に再検証される.
-- **Pixel-level flat**: 月ごとに RCS を用いた校正を予定する. pixel-level flat は大規模な感度変動を表す L-flat と結合され, exposure pipeline で適用される.
+- **Pixel-level flat**: 月ごとに RCS を用いた較正を予定する. pixel-level flat は大規模な感度変動を表す L-flat と結合され, exposure pipeline で適用される.
 - **Classical non-linearity**: 内部 flat の解析を用い, 年に一度の検証を予定する. 補正は exposure pipeline で適用される.
 - **Read noise**: 週ごとの監視を予定し, 必要に応じて参照ファイルを更新する.
 - **Persistence**: 観測頻度は未定である.
 - **Gain**: 月ごとの監視を予定し, 必要に応じて参照ファイルを更新する.
 - **IPC**: 観測頻度は未定である.
 
-これらは観測・校正の計画であり, 軌道上での実施完了や校正精度の達成を示すものではない. 実データの解析では適用された CRDS context と参照ファイルを確認する.
+これらは観測・較正の計画であり, 軌道上での実施完了や較正精度の達成を示すものではない. 実データの解析では適用された CRDS context と参照ファイルを確認する.
 
 出典:
 
@@ -190,13 +190,13 @@ STScI が 2026 年 11 月 18 日に公開した計画では, WFI の detector ca
 
 ## 撮像位置較正の軌道上計画
 
-STScI が 2026 年 11 月 18 日に公開した撮像校正計画では, Astrometric Touchstone Field のディザー観測を用いて各 WFI detector の相対位置と幾何歪みを校正する. 校正は全 8 撮像フィルターについて年に一度行う計画である.
+STScI が 2026 年 11 月 18 日に公開した撮像較正計画では, Astrometric Touchstone Field のディザー観測を用いて各 WFI detector の相対位置と幾何歪みを較正する. 較正は全 8 撮像フィルターについて年に一度行う計画である.
 
 - **小ディザー**: detector の端から端を覆う 7 × 7 pointings を用い, 18 detectors それぞれの幾何歪みをモデル化する.
 - **大ディザー**: WFI 全視野を覆う 9 × 5 pointings を用い, detector 間の歪み補正済み座標の対応を求める.
 - **Roll 観測**: 同一点を 60 度間隔の異なる位置角で観測し, 歪みの skew 成分を評価する.
 
-初期の参照位置には Gaia を用い, その後 Roman の測定から歪みと共通の基準座標系を同時に求める self-calibration で改善する計画である. 各 exposure の天体位置は effective PSF (ePSF) fitting で求め, 残差を二次元多項式, lookup table, pixel 単位の補正でモデル化する. フィルターごとの完全な distortion model は CRDS で提供され, 多項式係数は SIAF にも収録される予定である. 一方, Gaia を基準とした絶対位置較正は個々の exposure の pipeline で行われ, この軌道上校正計画には含まれない.
+初期の参照位置には Gaia を用い, その後 Roman の測定から歪みと共通の基準座標系を同時に求める self-calibration で改善する計画である. 各 exposure の天体位置は effective PSF (ePSF) fitting で求め, 残差を二次元多項式, lookup table, pixel 単位の補正でモデル化する. フィルターごとの完全な distortion model は CRDS で提供され, 多項式係数は SIAF にも収録される予定である. 一方, Gaia を基準とした絶対位置較正は個々の exposure の pipeline で行われ, この軌道上較正計画には含まれない.
 
 STScI は位置較正に用いる空間依存 ePSF library を各撮像フィルターについて提供する計画も示している. これらは計画であり, 観測の完了や要求精度の達成を示すものではない. 実データには処理時に選択された参照ファイルを確認する.
 
@@ -229,7 +229,7 @@ STScI は位置較正に用いる空間依存 ePSF library を各撮像フィル
 - **撮像**: 8 フィルター (0.5-2.3 μm)
 - **分光**: Prism (R~80-180), Grism (R~451)
 - **ガイド**: 連続ファインガイダンス
-- **校正**: 内蔵 RCS による高精度校正
+- **較正**: 内蔵 RCS による高精度較正
 
 ---
 
