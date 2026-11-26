@@ -20,7 +20,18 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 
 ## 現行の較正状況
 
-2026-11-15 時点の `latest` context は, 2026-11-12 に delivery および activation された `roman_0078.pmap` である. この context は, `roman_0077.pmap` までの imaging, detector, spectral calibration files, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を引き継ぎ, WFI empirical point-spread function (ePSF) の mapping を更新している.
+2026-11-27 時点の `latest` context は, 2026-11-12 に delivery および activation された `roman_0078.pmap` である. この context は, `roman_0077.pmap` までの imaging, detector, spectral calibration files, Boresight Alignment Matrix (BAM), detector distortion, pixel area map を引き継ぎ, WFI empirical point-spread function (ePSF) の mapping を更新している.
+
+### 2026-11-25 に delivery された context
+
+CRDS の context 一覧では, 2026-11-25 に `roman_0079.pmap` から `roman_0083.pmap` が delivery された一方, 2026-11-27 時点ではこれらは `archived`, `roman_0078.pmap` は `latest` と表示されている. 以下の新しい参照ファイルを `latest` context で選択されるものとみなさず, 処理に使用した context と参照ファイルを確認する.
+
+- `roman_0079.pmap`: commissioning の軌道上データに基づく distortion reference files を再作成し, `set_telescope_pointing` 用の V2 ref, V3 ref, V3 ideal y angle の metadata を追加した.
+- `roman_0080.pmap`: commissioning data に基づく bad pixel mask, dark rate, photom を追加した. mask は 2026-10-20 と 2026-11-18 の装置の温度サイクルの間に取得されたデータに最も適している.
+- `roman_0081.pmap` と `roman_0082.pmap`: 地上の熱真空試験データと, 該当する場合は軌道上 commissioning data を用いた gain, read noise, saturation, linearity, inverse linearity の参照ファイルを追加した.
+- `roman_0083.pmap`: CAR-140 (PID 1008) の軌道上 commissioning data を用いた ePSF library を追加した. モデルは 4 倍に oversample され, pixel 内で積分済みである. 一方, extended ePSF は STPSF model を pixel 内で積分し, 正規化した CRDS IPC kernel と畳み込んだものである.
+
+これらは CRDS の delivery の記述であり, アストロメトリや測光の精度改善量を示すものではない. 適用範囲と activation の状態は利用時に CRDS で再確認する. 出典: [CRDS context 一覧](https://roman-crds.stsci.edu/display_all_contexts/) (Delivery: 2026-11-25), [`roman_0083.pmap` の context table](https://roman-crds.stsci.edu/context_table/roman_0083.pmap).
 
 ### Imaging および detector calibration
 
