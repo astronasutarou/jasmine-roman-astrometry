@@ -33,6 +33,17 @@ CRDS context は pipeline mapping (PMAP) ファイルで表され, 各参照フ�
 
 flat, saturation, mask, linearity, inverse linearity, photom は `2026-09-01 00:00:00` を `USEAFTER` とする detector 別ファイルを引き続き選択する. flat は imaging filter ごとに選択され, `GRISM`, `PRISM`, `DARK` には適用されない.
 
+### 軌道上データに基づく F062 flat の delivery
+
+CRDS は 2026-11-27 に `roman_0084.pmap` から `roman_0093.pmap` までの context を delivery し, WFI detectors の半数を対象とする新しい flat reference files を各 delivery で報告した. これらは dark element で規格化した RCS LED band 1 のデータを用い, F062 filter の応答を近似する. 画素間の変動は CAR-94 (PID 1027), 低空間周波数の変動は CAR-140 に基づき, CAR-141 による測光規格化と GSFC v3 ice model による氷の応答補正を含む.
+
+delivery note によれば, flat は最も近い CAR-94 pass から観測までの時間差がおよそ 3.5-4.5 日以内となるよう選択され, 週単位の氷に伴う応答変動を捉える. 2026-11-28 の確認時点では, CRDS は 0084-0093 を `archived`, 0078 を `latest` と表示している. 新しい delivery が標準処理に使用されているとは限らないため, 解析では実際に使用された context と flat file を確認する. delivery note は測光精度の改善量を定量化していない.
+
+出典:
+
+- [Roman CRDS All Contexts](https://roman-crds.stsci.edu/display_all_contexts/) (STScI, delivery: 2026-11-27, 2026-11-28 閲覧)
+- [Historical References: roman_0093.pmap](https://roman-crds.stsci.edu/context_table/roman_0093.pmap) (STScI, 2026-11-28 閲覧)
+
 ### Detector 別 ePSF mapping
 
 `roman_0078.pmap` の `roman_wfi_epsf_0005.rmap` は, WFI の 18 detectors と 8 imaging filters の組ごとに detector 別 ePSF reference file を選択する. RMAP の change level は `SEVERE` であり, 2026-11-12 に delivery および activation された.
